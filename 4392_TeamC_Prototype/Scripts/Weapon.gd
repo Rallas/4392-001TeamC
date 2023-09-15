@@ -52,6 +52,8 @@ func _process(delta):
 			
 		else:
 			# Fire a shot
+			
+			
 			currentMag -= 1
 			emit_signal("updateAmmo", currentMag, magSize)
 			nextShotTime = OS.get_ticks_msec() + fireRate
@@ -74,7 +76,10 @@ func _process(delta):
 			newBullet.InitBullet()
 			newBullet.bulletSpeed = bulletSpeed
 			newBullet.bulletRange = bulletRange
-			get_node("/root").add_child(newBullet)
+			get_node(@"/root").add_child(newBullet)
+			
+			print("CLICK: (%d,%d)" % [get_global_mouse_position().x, get_global_mouse_position().y])
+			get_node(@"/root/RootNode/NoiseController").CreateNoise(newBullet.position, 300)
 
 
 func StartReload():
