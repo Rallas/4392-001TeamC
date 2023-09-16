@@ -1,13 +1,14 @@
 extends Node2D
 
+# Behavior script for a noise source node.
+# When initialized, will tell any listening nodes current position and intensity
+# Also shows a visualization of noise radius
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-var timeout = 100
+var timeout = 100 # timeout (msec) for how long visual will be displayed.
 var spawnTime
 var intensity
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -17,13 +18,16 @@ func InitNoise(noisePosition, noiseIntensity):
 	intensity = noiseIntensity
 	spawnTime = OS.get_ticks_msec()
 	
-	# TEMP: Image I am using is a circle with 32 radius.
-	# scale the image by a factor of (intensity/32) -> new radius is [intensity] pixels.
-	get_child(0).scale = Vector2(intensity/32, intensity/32)
+	# Sprite attached to this is a circle with radius = {width/2} pixels
+	# Scale it by (intensity/radius) to make it a circle with new radius = {intensity} pixels
+	var spriteNode = get_child(0)
+	spriteNode.scale *= (intensity / (spriteNode.texture.get_width() / 2))
 	
-	print("NOISE: I=[%d] P=(%d,%d)" %[noiseIntensity, noisePosition.x, noisePosition.y])
+	# Any node belonging to the group "NoiseListener" will have its ReactToNoise() function called.
+	get_tree().call_group("NoiseListener", "ReactToNoise", noisePosition, noiseIntensity)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if OS.get_ticks_msec() - spawnTime > timeout:
-		queue_free()
+		queue_free() # Delete this node after {timeout} msec.

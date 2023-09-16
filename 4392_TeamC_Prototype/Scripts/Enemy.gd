@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
+# Script to handle enemy behavior.
+# Might add the movement/attack logic here, or that may go in another script.
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 signal healthChanged(newHealth, maxHealth)
 
@@ -26,3 +25,11 @@ func HitByProjectile():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# Note: Any node in the "NoiseListener" group needs to have this function defined with these parameters
+func ReactToNoise(noisePosition, noiseIntensity):
+	var distanceToNoise = global_position.distance_to(noisePosition)
+	
+	if distanceToNoise < noiseIntensity:
+		print("%s | I HEARD THAT!" % name)
+	

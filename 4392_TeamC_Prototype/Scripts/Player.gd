@@ -1,20 +1,18 @@
 extends KinematicBody2D
 
+# This script handles player movement
+# It is attached to the root node of the player
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# TODO: Add code logic to make the player move slower while 'backpedaling'
+# TODO: Make player emit noises every once in a while, with intensity proportional to current speed
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 export var moveSpeed = 200
 var speedModifier = 1
 var velocity = Vector2.ZERO
 
-	
+func _ready():
+	pass # Replace with function body.
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO

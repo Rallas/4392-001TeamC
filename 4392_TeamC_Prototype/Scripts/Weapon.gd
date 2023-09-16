@@ -1,5 +1,16 @@
 extends Node2D
 
+# This script handles function of a weapon.
+
+
+# TODO: Should probably change accuracy penalty logic to be based on angles, not position offsets. \
+#   (If we want to ever support controllers, those can only aim towards an angle, not a position)
+
+# TODO: Add a numBulletsPerShot variable, to support a shotgun-type weapon that fires a spread of shots.
+
+# TODO: Add a variable to configure amount of noise a shot makes
+# TODO: Make noise on reload
+
 signal updateAmmo(currentMag, magSize)
 
 ##############################################
@@ -25,6 +36,8 @@ var reloading
 var doneReloadTime
 
 var bulletNode = preload("res://Scenes/Bullet.tscn")
+
+onready var NC = get_node("/root/RootNode/NoiseController")
 
 var rng = RandomNumberGenerator.new()
 
@@ -60,6 +73,7 @@ func _process(delta):
 		
 			# Instantiate a new bullet in the scene
 			var newBullet = bulletNode.instance()
+			get_node(@"/root").add_child(newBullet)
 			
 			# Random vector offset. x and y both floats in range [-1,1]
 			var accuracyPenalty = Vector2(rng.randf_range(-1,1), rng.randf_range(-1,1))
@@ -69,17 +83,12 @@ func _process(delta):
 				accuracyPenalty *= aimingAccuracyPenalty
 			else:
 				accuracyPenalty *= hipfireAccuracyPenalty
-				
 			
-			newBullet.direction = (get_global_mouse_position() + accuracyPenalty - get_parent().position).normalized()
-			newBullet.position = get_parent().position
-			newBullet.InitBullet()
-			newBullet.bulletSpeed = bulletSpeed
-			newBullet.bulletRange = bulletRange
-			get_node(@"/root").add_child(newBullet)
 			
-			print("CLICK: (%d,%d)" % [get_global_mouse_position().x, get_global_mouse_position().y])
-			get_node(@"/root/RootNode/NoiseController").CreateNoise(newBullet.position, 300)
+			var shotTarget = get_global_mouse_position() + accuracyPenalty
+			newBullet.InitBullet(shotTarget, global_position, bulletSpeed, bulletRange)
+			
+			NC.CreateNoise(newBullet.position, 300)
 
 
 func StartReload():

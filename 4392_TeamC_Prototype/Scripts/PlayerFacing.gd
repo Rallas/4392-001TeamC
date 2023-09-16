@@ -1,10 +1,10 @@
 extends Sprite
 
+# This script rotates the player sprite to face the camera.
+# I didn't put this in the main player script because rotating the entire player and its hitbox was causing clipping issues.
 
-# Moved look_at() function here to prevent an issue where
-# rotating the player while touching a wall could get the player's
-# hitbox stuck inside the wall.
-# This script now only rotates the players sprite, not the hitbox.
+# TODO: split this out to rotate [head/torso/legs] separately.
+
 func _process(_delta):	
 	look_at(get_global_mouse_position())
 

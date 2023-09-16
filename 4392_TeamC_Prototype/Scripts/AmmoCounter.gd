@@ -1,22 +1,7 @@
 extends Label
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-	
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+# Very basic ammo counter implementation, to later be replaced with prettier HUD
+# Linked to the 'updateAmmo' signal emitted by the player. (Signal linked in Godot editor window)
 
 func _on_DefaultWeapon_updateAmmo(currentMag, magSize):
 	text = "Ammo: %d/%d" % [currentMag, magSize]

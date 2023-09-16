@@ -1,14 +1,12 @@
 extends ColorRect
 
-
-
 # Temp script for tutorial text until we make a real pause menu
-
+# Hitting ESC toggles the controls screen
+# It also disappears after 3 seconds if not dismissed manually
 
 var shouldTimeout = true
 var timeout
 
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	timeout = OS.get_ticks_msec() + 3000
