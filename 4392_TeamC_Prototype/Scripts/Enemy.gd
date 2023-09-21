@@ -4,16 +4,20 @@ extends KinematicBody2D
 # Might add the movement/attack logic here, or that may go in another script.
 
 
+var moveTarget
+
 signal healthChanged(newHealth, maxHealth)
 
 export var maxHealth = 4
 var health
 
+var moveSpeed = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = maxHealth
 	emit_signal("healthChanged", health, maxHealth)
-	pass # Replace with function body.
+	moveTarget = global_position
 
 
 func HitByProjectile():
@@ -22,14 +26,16 @@ func HitByProjectile():
 	if health == 0:
 		queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _physics_process(_delta):
+	var velocity = Vector2.ZERO
+	if global_position.distance_to(moveTarget) > 10:
+		velocity = (moveTarget - global_position).normalized()
+		move_and_slide(velocity*moveSpeed)
 # Note: Any node in the "NoiseListener" group needs to have this function defined with these parameters
 func ReactToNoise(noisePosition, noiseIntensity):
 	var distanceToNoise = global_position.distance_to(noisePosition)
 	
 	if distanceToNoise < noiseIntensity:
-		print("%s | I HEARD THAT!" % name)
+		print("(t=%d) | %s | I HEARD THAT!" % [OS.get_ticks_msec(), name])
+		moveTarget = noisePosition
 	
