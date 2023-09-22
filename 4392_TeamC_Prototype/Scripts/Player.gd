@@ -4,7 +4,7 @@ extends KinematicBody2D
 # It is attached to the root node of the player
 
 # TODO: Add code logic to make the player move slower while 'backpedaling'
-
+# TODO: Setup player health, enemy damage, etc...
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
@@ -44,3 +44,11 @@ func _physics_process(_delta):
 	
 	move_and_slide(velocity*moveSpeed*speedModifier)
 	
+
+var lastHitTime = 0
+var timeBetweenHits = 500
+
+func HitByEnemy():
+	if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
+		lastHitTime = OS.get_ticks_msec()
+		print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
