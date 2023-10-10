@@ -88,4 +88,7 @@ scale = Vector2( 0.5, 0.5 )
 scale = Vector2( 2, 2 )
 fireRate = 10
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.423529, 0.329412, 0.329412, 1 )
+
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
