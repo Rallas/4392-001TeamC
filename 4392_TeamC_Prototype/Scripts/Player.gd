@@ -8,9 +8,16 @@ extends KinematicBody2D
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
+var playerPosition = global_position
+var mousePosition = get_global_mouse_position()
+	
 export var moveSpeed = 200
 var speedModifier = 1
 var velocity = Vector2.ZERO
+var movementDirection = Vector2.ZERO
+var facingDirection = Vector2.ZERO
+var isBackpedaling = 0;
+var backpedalingModifier = 0.6;
 
 var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
@@ -21,6 +28,7 @@ func _ready():
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
@@ -29,14 +37,31 @@ func _physics_process(_delta):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= 1
+		
+	# Updating player and mouse position
+	playerPosition = global_position
+	mousePosition = get_global_mouse_position()
 	
+	# Calculate facing direction
+	facingDirection = (mousePosition - playerPosition).normalized()
+	# Calculate the player's movement direction
+	movementDirection = Vector2(int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")), int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))).normalized()
+	# Determining if player is backpedaling
+	isBackpedaling = movementDirection.dot(facingDirection) < -0.7
+	#print(movementDirection.dot(facingDirection))
 	
 	if Input.is_action_pressed("sneak") or Input.is_action_pressed("aim"):
 		speedModifier = 0.5
+		if isBackpedaling:
+			speedModifier *= backpedalingModifier
 	elif Input.is_action_pressed("sprint"):
 		speedModifier = 2
+		if isBackpedaling:
+			speedModifier *= backpedalingModifier 
 	else:
 		speedModifier = 1
+		if isBackpedaling:
+			speedModifier *= backpedalingModifier 
 	
 	if velocity != Vector2.ZERO and OS.get_ticks_msec() - lastFootstepTime > timeBetweenFootsteps:
 		lastFootstepTime = OS.get_ticks_msec()
