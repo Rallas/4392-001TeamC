@@ -16,7 +16,7 @@ signal updateAmmo(currentMag, magSize)
 ##############################################
 # Configurable Weapon properties
 export var bulletSpeed = 500		# (I think pixels/second)
-export var fireRate = 30 			# Milliseconds between shots
+export var fireRate = 100 			# Milliseconds between shots
 export var fullAuto = false		# Hold fire button or click each shot
 export var bulletRange = 1000		# Pixels traveled before delete
 export var magSize = 8				# Num shots before reloading

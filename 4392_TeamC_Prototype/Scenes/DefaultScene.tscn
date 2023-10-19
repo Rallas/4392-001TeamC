@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/AmmoCounter.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scripts/LevelGenerator.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/NoiseController.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UpdatePlayerHealth.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/InteractibleObjects/LockedDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/InteractibleObjects/Radio.tscn" type="PackedScene" id=11]
 
 [node name="RootNode" type="Node2D"]
 
@@ -96,10 +98,21 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]
 scale = Vector2( 2, 2 )
-fireRate = 10
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.423529, 0.329412, 0.329412, 1 )
 
+[node name="LockedDoor" parent="." instance=ExtResource( 10 )]
+position = Vector2( -705, -33 )
+
+[node name="Radio" parent="." instance=ExtResource( 11 )]
+position = Vector2( -714, -179 )
+
+[node name="LockedDoor2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -878, -30 )
+resetProgress = true
+
 [connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
+
+[editable path="Player"]
