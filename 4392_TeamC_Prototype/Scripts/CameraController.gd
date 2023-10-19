@@ -7,6 +7,9 @@ extends Camera2D
 
 # TODO: Set this number based on game window size/resolution.
 # Max distance in pixels that the camera will move from the player. Will prevent aiming so far away that the player leaves the screen.
+onready var VC = get_node("/root/RootNode/Player/Sprite/VisionCone")
+onready var VCM = get_node("/root/RootNode/Player/Sprite/VisionConeMask")
+
 var MaxDistanceFromPlayer = 500
 
 func _ready():
@@ -24,6 +27,10 @@ func _process(delta):
 			
 		
 		position = cameraTarget
+		VC.scale = Vector2(1, 1)
+		VCM.scale = Vector2(1, 1)
 	else:
 		position = Vector2.ZERO
+		VC.scale = Vector2(2, 1)
+		VCM.scale = Vector2(2, 1)
 	pass

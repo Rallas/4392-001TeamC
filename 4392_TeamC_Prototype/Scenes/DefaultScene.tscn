@@ -114,3 +114,5 @@ resetProgress = true
 
 [connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
+
+[editable path="Player"]

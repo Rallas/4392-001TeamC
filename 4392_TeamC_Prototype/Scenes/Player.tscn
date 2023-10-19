@@ -58,7 +58,7 @@ texture = ExtResource( 6 )
 offset = Vector2( 0, 180 )
 shadow_enabled = true
 
-[node name="VisionCone Mask" type="Light2D" parent="Sprite"]
+[node name="VisionConeMask" type="Light2D" parent="Sprite"]
 rotation = -1.5708
 scale = Vector2( 2, 1 )
 texture = ExtResource( 6 )
