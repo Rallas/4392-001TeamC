@@ -13,25 +13,25 @@ var intensity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+  pass # Replace with function body.
 
 func InitNoise(noisePosition, noiseIntensity):
-	position = noisePosition
-	intensity = noiseIntensity
-	spawnTime = OS.get_ticks_msec()
-	
-	# Sprite attached to this is a circle with radius = {width/2} pixels
-	# Scale it by (intensity/radius) to make it a circle with new radius = {intensity} pixels
-	var spriteNode = get_child(0)
-	scale  *= (intensity / (spriteNode.texture.get_width() / 2))
-	
-	# Any node belonging to the group "NoiseListener" will have its ReactToNoise() function called.
-	get_tree().call_group("NoiseListener", "ReactToNoise", noisePosition, noiseIntensity)
-	
+  position = noisePosition
+  intensity = noiseIntensity
+  spawnTime = OS.get_ticks_msec()
+  
+  # Sprite attached to this is a circle with radius = {width/2} pixels
+  # Scale it by (intensity/radius) to make it a circle with new radius = {intensity} pixels
+  var spriteNode = get_child(0)
+  scale  *= (intensity / (spriteNode.texture.get_width() / 2))
+  
+  # Any node belonging to the group "NoiseListener" will have its ReactToNoise() function called.
+  get_tree().call_group("NoiseListener", "ReactToNoise", noisePosition, noiseIntensity)
+  
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	
-	if OS.get_ticks_msec() - spawnTime > timeout:
-		queue_free() # Delete this node after {timeout} msec.
+  
+  
+  if OS.get_ticks_msec() - spawnTime > timeout:
+    queue_free() # Delete this node after {timeout} msec.

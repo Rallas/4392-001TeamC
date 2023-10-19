@@ -30,67 +30,67 @@ var mousePosition = get_global_mouse_position()
 var currentHealth;
 
 func _ready():
-	currentHealth = totalHealth;
-	emit_signal("updateHealth", currentHealth, totalHealth)
-	pass # Replace with function body.
+  currentHealth = totalHealth;
+  emit_signal("updateHealth", currentHealth, totalHealth)
+  pass # Replace with function body.
 
 func _physics_process(_delta):
-	velocity = Vector2.ZERO
-	
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-		
-	# Updating player and mouse position
-	playerPosition = global_position
-	mousePosition = get_global_mouse_position()
-	
-	# Calculate facing direction
-	facingDirection = (mousePosition - playerPosition).normalized()
-	# Calculate the player's movement direction
-	movementDirection = Vector2(int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")), int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))).normalized()
-	# Determining if player is backpedaling
-	isBackpedaling = movementDirection.dot(facingDirection) < -0.7
-	#print(movementDirection.dot(facingDirection))
-	
-	if Input.is_action_pressed("sneak") or Input.is_action_pressed("aim"):
-		speedModifier = 0.5
-		if isBackpedaling:
-			speedModifier *= backpedalingModifier
-	elif Input.is_action_pressed("sprint"):
-		speedModifier = 2
-		if isBackpedaling:
-			speedModifier *= backpedalingModifier 
-	else:
-		speedModifier = 1
-		if isBackpedaling:
-			speedModifier *= backpedalingModifier 
-	
-	if velocity != Vector2.ZERO and OS.get_ticks_msec() - lastFootstepTime > timeBetweenFootsteps:
-		lastFootstepTime = OS.get_ticks_msec()
-		NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
-	
-	move_and_slide(velocity*moveSpeed*speedModifier)
-	
+  velocity = Vector2.ZERO
+  
+  if Input.is_action_pressed("move_down"):
+    velocity.y += 1
+  if Input.is_action_pressed("move_up"):
+    velocity.y -= 1
+  if Input.is_action_pressed("move_right"):
+    velocity.x += 1
+  if Input.is_action_pressed("move_left"):
+    velocity.x -= 1
+    
+  # Updating player and mouse position
+  playerPosition = global_position
+  mousePosition = get_global_mouse_position()
+  
+  # Calculate facing direction
+  facingDirection = (mousePosition - playerPosition).normalized()
+  # Calculate the player's movement direction
+  movementDirection = Vector2(int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")), int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))).normalized()
+  # Determining if player is backpedaling
+  isBackpedaling = movementDirection.dot(facingDirection) < -0.7
+  #print(movementDirection.dot(facingDirection))
+  
+  if Input.is_action_pressed("sneak") or Input.is_action_pressed("aim"):
+    speedModifier = 0.5
+    if isBackpedaling:
+      speedModifier *= backpedalingModifier
+  elif Input.is_action_pressed("sprint"):
+    speedModifier = 2
+    if isBackpedaling:
+      speedModifier *= backpedalingModifier 
+  else:
+    speedModifier = 1
+    if isBackpedaling:
+      speedModifier *= backpedalingModifier 
+  
+  if velocity != Vector2.ZERO and OS.get_ticks_msec() - lastFootstepTime > timeBetweenFootsteps:
+    lastFootstepTime = OS.get_ticks_msec()
+    NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
+  
+  move_and_slide(velocity*moveSpeed*speedModifier)
+  
 
 var lastHitTime = 0
 var timeBetweenHits = 500
 
 func HitByEnemy():
-	if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
-		lastHitTime = OS.get_ticks_msec()
-		if (currentHealth - enemyDamage > 0):
-			currentHealth -= enemyDamage
-			print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
-			emit_signal("updateHealth", currentHealth, totalHealth)
-		else:
-			# TODO: Connect to player death screen
-			emit_signal("updateHealth", 0, totalHealth)
-			print("(t=%d) | Player is Dead" % OS.get_ticks_msec())
-		
-		
+  if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
+    lastHitTime = OS.get_ticks_msec()
+    if (currentHealth - enemyDamage > 0):
+      currentHealth -= enemyDamage
+      print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
+      emit_signal("updateHealth", currentHealth, totalHealth)
+    else:
+      # TODO: Connect to player death screen
+      emit_signal("updateHealth", 0, totalHealth)
+      print("(t=%d) | Player is Dead" % OS.get_ticks_msec())
+    
+    
