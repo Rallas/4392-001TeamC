@@ -4,6 +4,3 @@
 
 [node name="DefaultWeapon" type="Node2D"]
 script = ExtResource( 1 )
-fireRate = 100
-fullAuto = true
-magSize = 30
