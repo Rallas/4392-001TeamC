@@ -5,12 +5,13 @@ extends KinematicBody2D
 
 # TODO: Add code logic to make the player move slower while 'backpedaling'
 # TODO: Setup player health, enemy damage, etc...
+signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
-var playerPosition = global_position
-var mousePosition = get_global_mouse_position()
-	
+export var totalHealth = 100;
+export var enemyDamage = 20;
+
 export var moveSpeed = 200
 var speedModifier = 1
 var velocity = Vector2.ZERO
@@ -23,7 +24,14 @@ var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
 var baseFootstepIntensity = 0.75
 
+var playerPosition = global_position
+var mousePosition = get_global_mouse_position()
+
+var currentHealth;
+
 func _ready():
+	currentHealth = totalHealth;
+	emit_signal("updateHealth", currentHealth, totalHealth)
 	pass # Replace with function body.
 
 func _physics_process(_delta):
@@ -76,4 +84,13 @@ var timeBetweenHits = 500
 func HitByEnemy():
 	if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
 		lastHitTime = OS.get_ticks_msec()
-		print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
+		if (currentHealth - enemyDamage > 0):
+			currentHealth -= enemyDamage
+			print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
+			emit_signal("updateHealth", currentHealth, totalHealth)
+		else:
+			# TODO: Connect to player death screen
+			emit_signal("updateHealth", 0, totalHealth)
+			print("(t=%d) | Player is Dead" % OS.get_ticks_msec())
+		
+		
