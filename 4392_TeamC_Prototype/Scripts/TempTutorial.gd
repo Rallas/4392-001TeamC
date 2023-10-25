@@ -9,15 +9,15 @@ var timeout
 
 
 func _ready():
-	timeout = OS.get_ticks_msec() + 3000
-	
+    timeout = OS.get_ticks_msec() + 3000
+    
 
 
 func _process(delta):
-	if shouldTimeout and OS.get_ticks_msec() > timeout:
-		shouldTimeout = false
-		visible = false
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		shouldTimeout = false
-		visible = not visible
+    if shouldTimeout and OS.get_ticks_msec() > timeout:
+        shouldTimeout = false
+        visible = false
+        
+    if Input.is_action_just_pressed("ui_cancel"):
+        shouldTimeout = false
+        visible = not visible

@@ -12,8 +12,8 @@ extends Node2D
 var NoiseObject = preload("res://Scenes/NoiseSource.tscn")
 
 func CreateNoise(noisePosition, noiseIntensity):
-	var newNoise = NoiseObject.instance()
-	# Note: initNoise requires that the node already be in the scene tree, so add it first
-	add_child(newNoise)
-	newNoise.InitNoise(noisePosition, noiseIntensity)
-	
+    var newNoise = NoiseObject.instance()
+    # Note: initNoise requires that the node already be in the scene tree, so add it first
+    add_child(newNoise)
+    newNoise.InitNoise(noisePosition, noiseIntensity)
+    

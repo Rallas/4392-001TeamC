@@ -4,5 +4,5 @@ extends Label
 # Linked to the 'updateAmmo' signal emitted by the player. (Signal linked in Godot editor window)
 
 func _on_DefaultWeapon_updateAmmo(currentMag, magSize):
-	text = "Ammo: %d/%d" % [currentMag, magSize]
-	pass # Replace with function body.
+    text = "Ammo: %d/%d" % [currentMag, magSize]
+    pass # Replace with function body.
