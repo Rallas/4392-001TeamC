@@ -20,7 +20,7 @@ func _ready():
   pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
   # If resetProgress, clear any progress made after small interval of no Interact() calls.
   if resetProgress and timeToUnlock < totalTimeToUnlock:
     if OS.get_ticks_msec() - lastInteractTime > inactiveInterval:
