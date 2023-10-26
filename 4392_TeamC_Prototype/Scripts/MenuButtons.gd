@@ -15,7 +15,7 @@ func _ready():
 
 func _playButton_Pressed():
   #load the first scene
-  get_tree().change_scene("res://Scenes/DefaultScene.tscn")
+  var _ret = get_tree().change_scene("res://Scenes/DefaultScene.tscn")
 
 func _exitButton_Pressed():
   #exit out of application
