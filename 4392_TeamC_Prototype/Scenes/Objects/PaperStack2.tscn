@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Objects/Paper.tscn" type="PackedScene" id=1]
+
+[node name="PaperStack2" type="Node2D"]
+
+[node name="Paper" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2, -1 )
+rotation = -1.48807
+
+[node name="Paper2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1, -9 )
+rotation = 0.129895
+
+[node name="Paper3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, -5 )
+rotation = 0.851554

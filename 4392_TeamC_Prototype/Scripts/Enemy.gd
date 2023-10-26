@@ -11,6 +11,7 @@ export var maxHealth = 4
 var health
 
 var moveSpeed = 100
+var inertia = 100
 
 var followingNoise = false
 var lastRandomTargetTime = 0
@@ -48,6 +49,11 @@ func _physics_process(_delta):
       velocity *= 0.25
     
     move_and_slide(velocity*moveSpeed)
+    
+    for i in get_slide_count():
+      var collision = get_slide_collision(i)
+      if collision.collider.is_in_group("movableObject"):
+        collision.collider.apply_central_impulse(-collision.normal*inertia)
   else:
     followingNoise = false
 

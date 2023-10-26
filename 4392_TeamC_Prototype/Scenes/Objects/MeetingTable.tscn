@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Tables.tres" type="TileSet" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 192, 48 )
+
+[node name="MeetingTable" type="RigidBody2D" groups=["movableObject"]]
+mode = 1
+mass = 20.4082
+gravity_scale = 0.0
+linear_damp = 200.0
+angular_damp = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -65542, -1610612736, 0, -65541, -1610612736, 0, -65540, -1610612736, 0, -65539, -1610612736, 0, -65538, -1610612736, 0, -65537, -1610612736, 0, -131072, -1610612736, 0, -131071, -1610612736, 0, -131070, -1610612736, 0, -131069, -1610612736, 0, -131068, -1610612736, 0, -131067, -1610612736, 0, -6, -1610612736, 0, -5, -1610612736, 0, -4, -1610612736, 0, -3, -1610612736, 0, -2, -1610612736, 0, -1, -1610612736, 0, -65536, -1610612736, 0, -65535, -1610612736, 0, -65534, -1610612736, 0, -65533, -1610612736, 0, -65532, -1610612736, 0, -65531, -1610612736, 0, 65530, -1610612736, 0, 65531, -1610612736, 0, 65532, -1610612736, 0, 65533, -1610612736, 0, 65534, -1610612736, 0, 65535, -1610612736, 0, 0, -1610612736, 0, 1, -1610612736, 0, 2, -1610612736, 0, 3, -1610612736, 0, 4, -1610612736, 0, 5, -1610612736, 0 )

@@ -16,6 +16,7 @@ export var enemyDamage = 20;
 export var moveSpeed = 200
 var speedModifier = 1
 var velocity = Vector2.ZERO
+var inertia = 100
 var movementDirection = Vector2.ZERO
 var facingDirection = Vector2.ZERO
 var isBackpedaling = 0;
@@ -69,8 +70,12 @@ func _physics_process(_delta):
     lastFootstepTime = OS.get_ticks_msec()
     NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
   
-  move_and_slide(velocity*moveSpeed*speedModifier)
-  
+  move_and_slide(velocity*moveSpeed*speedModifier, Vector2(0,0), false, 4, PI/4, false)
+
+  for i in get_slide_count():
+    var collision = get_slide_collision(i)
+    if collision.collider.is_in_group("movableObject"):
+        collision.collider.apply_central_impulse(-collision.normal*inertia*speedModifier)
 
 var lastHitTime = 0
 var timeBetweenHits = 500
