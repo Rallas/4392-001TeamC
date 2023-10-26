@@ -13,17 +13,17 @@ var noiseIntensity = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+  pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	if radioIsOn and OS.get_ticks_msec() - lastNoiseTime > noiseInterval:
-		lastNoiseTime = OS.get_ticks_msec()
-		NC.CreateNoise(global_position, noiseIntensity)
-		
-	pass # Replace with function body.
+  
+  if radioIsOn and OS.get_ticks_msec() - lastNoiseTime > noiseInterval:
+    lastNoiseTime = OS.get_ticks_msec()
+    NC.CreateNoise(global_position, noiseIntensity)
+    
+  pass # Replace with function body.
 
 func Interact():
-	radioIsOn = not radioIsOn
+  radioIsOn = not radioIsOn
 

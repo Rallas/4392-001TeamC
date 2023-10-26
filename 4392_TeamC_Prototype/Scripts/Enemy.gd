@@ -45,6 +45,9 @@ func _physics_process(_delta):
     if followingNoise:
       velocity *= 3.5
     
+    else:
+      velocity *= 0.25
+    
     move_and_slide(velocity*moveSpeed)
   else:
     followingNoise = false

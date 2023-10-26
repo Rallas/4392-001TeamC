@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/gray.PNG" type="Texture" id=5]
 [ext_resource path="res://Sprites/VisionCone.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/GradientCircle.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/PlayerInventory.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 17.0
@@ -80,3 +81,6 @@ shadow_item_cull_mask = 2
 current = true
 zoom = Vector2( 0.7, 0.7 )
 script = ExtResource( 4 )
+
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource( 8 )

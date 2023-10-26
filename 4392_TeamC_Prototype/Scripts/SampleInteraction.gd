@@ -8,10 +8,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+  pass # Replace with function body.
 
 func Interact():
-	print("(t=%d) Object interacted!" % [OS.get_ticks_msec()])
+  print("(t=%d) Object interacted!" % [OS.get_ticks_msec()])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

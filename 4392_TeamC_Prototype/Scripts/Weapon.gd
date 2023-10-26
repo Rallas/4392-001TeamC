@@ -11,7 +11,7 @@ extends Node2D
 # TODO: Add a variable to configure amount of noise a shot makes
 # TODO: Make noise on reload
 
-signal updateAmmo(currentMag, magSize)
+signal updateAmmo(currentMag, magSize, reserveAmmo)
 
 ##############################################
 # Configurable Weapon properties
@@ -38,6 +38,7 @@ var doneReloadTime
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var PlayerInventory = get_node("../Inventory")
 
 var rng = RandomNumberGenerator.new()
 
@@ -46,7 +47,7 @@ func _ready():
     currentMag = magSize
     nextShotTime = OS.get_ticks_msec()
     reloading = false
-    emit_signal("updateAmmo", currentMag, magSize)
+    emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
     
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,10 +66,8 @@ func _process(delta):
             
         else:
             # Fire a shot
-            
-            
             currentMag -= 1
-            emit_signal("updateAmmo", currentMag, magSize)
+            emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
             nextShotTime = OS.get_ticks_msec() + fireRate
         
             # Instantiate a new bullet in the scene
@@ -92,6 +91,9 @@ func _process(delta):
 
 
 func StartReload():
+    if PlayerInventory.numBullets <= 0:
+      return
+      
     reloading = true
     doneReloadTime = OS.get_ticks_msec() + reloadTime
     get_node(@"/root/RootNode/UI Container/ReloadText").visible = true
@@ -99,8 +101,13 @@ func StartReload():
 
 func StopReload():
     reloading = false
-    currentMag = magSize
-    emit_signal("updateAmmo", currentMag, magSize)
+    
+    var numToLoad = min(magSize - currentMag, PlayerInventory.numBullets)
+    
+    currentMag += numToLoad
+    PlayerInventory.numBullets -= numToLoad
+    
+    emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
     get_node(@"/root/RootNode/UI Container/ReloadText").visible = false
     
 
