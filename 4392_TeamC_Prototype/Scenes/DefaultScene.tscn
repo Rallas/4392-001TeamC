@@ -103,7 +103,7 @@ scale = Vector2( 0.5, 0.5 )
 scale = Vector2( 2, 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.423529, 0.329412, 0.329412, 1 )
+color = Color( 0.184314, 0.145098, 0.145098, 1 )
 
 [node name="LockedDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( -705, -33 )

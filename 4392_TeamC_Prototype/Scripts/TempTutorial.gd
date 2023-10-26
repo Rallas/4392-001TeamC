@@ -13,7 +13,7 @@ func _ready():
     
 
 
-func _process(delta):
+func _process(_delta):
     if shouldTimeout and OS.get_ticks_msec() > timeout:
         shouldTimeout = false
         visible = false

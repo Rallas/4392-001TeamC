@@ -16,26 +16,26 @@ var inactiveInterval = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+    pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# If resetProgress, clear any progress made after small interval of no Interact() calls.
-	if resetProgress and timeToUnlock < totalTimeToUnlock:
-		if OS.get_ticks_msec() - lastInteractTime > inactiveInterval:
-			timeToUnlock = totalTimeToUnlock
+func _process(_delta):
+    # If resetProgress, clear any progress made after small interval of no Interact() calls.
+    if resetProgress and timeToUnlock < totalTimeToUnlock:
+        if OS.get_ticks_msec() - lastInteractTime > inactiveInterval:
+            timeToUnlock = totalTimeToUnlock
 
 # Object set to not be instant, so this will be called repeatedly while interacting.
 func Interact():
-	print("%d percent remaining" % [timeToUnlock])
-	timeToUnlock -= 1
-	
-	lastInteractTime = OS.get_ticks_msec()
-	
-	if OS.get_ticks_msec() - lastNoiseTime > noiseInterval:
-		lastNoiseTime = OS.get_ticks_msec()
-		NC.CreateNoise(global_position, noiseIntensity)
-	
-	if timeToUnlock <= 0:
-		queue_free()
+    print("%d percent remaining" % [timeToUnlock])
+    timeToUnlock -= 1
+    
+    lastInteractTime = OS.get_ticks_msec()
+    
+    if OS.get_ticks_msec() - lastNoiseTime > noiseInterval:
+        lastNoiseTime = OS.get_ticks_msec()
+        NC.CreateNoise(global_position, noiseIntensity)
+    
+    if timeToUnlock <= 0:
+        queue_free()
 
