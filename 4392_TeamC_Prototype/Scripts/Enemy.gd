@@ -2,8 +2,7 @@ extends KinematicBody2D
 
 # Script to handle enemy behavior.
 # Might add the movement/attack logic here, or that may go in another script.
-
-
+#warning-ignore:RETURN_VALUE_DISCARDED
 var moveTarget
 
 signal healthChanged(newHealth, maxHealth)
@@ -65,7 +64,7 @@ func ReactToNoise(noisePosition, noiseIntensity):
 
 
 var playerBeingHit = null
-func _process(delta):
+func _process(_delta):
   if playerBeingHit != null:
     playerBeingHit.HitByEnemy()
     

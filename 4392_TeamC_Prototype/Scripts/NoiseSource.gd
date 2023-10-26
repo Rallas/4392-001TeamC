@@ -30,7 +30,7 @@ func InitNoise(noisePosition, noiseIntensity):
   
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
   
   
   if OS.get_ticks_msec() - spawnTime > timeout:

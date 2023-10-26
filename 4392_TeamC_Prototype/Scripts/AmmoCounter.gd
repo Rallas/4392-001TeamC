@@ -21,5 +21,5 @@ func _on_DefaultWeapon_updateAmmo(m, s, r):
   
   
 func updateLabel():
-  text = "Ammo: [%d/%d] [+ %d]" % [currentMag, magSize, reserveAmmo]
+  text = "Ammo: [%d/%d] [+%d]" % [currentMag, magSize, reserveAmmo]
   

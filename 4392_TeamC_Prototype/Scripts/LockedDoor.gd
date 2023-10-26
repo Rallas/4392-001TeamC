@@ -47,4 +47,3 @@ func Interact():
     
     # Remove the locked door now that script is done placing a normal door.
     queue_free()
-

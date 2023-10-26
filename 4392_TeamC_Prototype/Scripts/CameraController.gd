@@ -18,7 +18,7 @@ func _ready():
 # If aiming, camera will focus on the point halfway between the player and the mouse.
 # Otherwise, it will be centered on the player
 # NOTE: This sets the local position. local position (0,0) is centered on the player
-func _process(delta):
+func _process(_delta):
     if Input.is_action_pressed("aim"):
         var cameraTarget = 0.5 * (get_global_mouse_position() - get_parent().global_position)
         

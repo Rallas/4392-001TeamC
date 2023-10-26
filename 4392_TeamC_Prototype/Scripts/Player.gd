@@ -5,6 +5,7 @@ extends KinematicBody2D
 
 # TODO: Add code logic to make the player move slower while 'backpedaling'
 # TODO: Setup player health, enemy damage, etc...
+#warning-ignore:RETURN_VALUE_DISCARDED
 signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
@@ -24,9 +25,6 @@ var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
 var baseFootstepIntensity = 0.75
 
-var playerPosition = global_position
-var mousePosition = get_global_mouse_position()
-
 var currentHealth;
 
 func _ready():
@@ -45,13 +43,9 @@ func _physics_process(_delta):
     velocity.x += 1
   if Input.is_action_pressed("move_left"):
     velocity.x -= 1
-    
-  # Updating player and mouse position
-  playerPosition = global_position
-  mousePosition = get_global_mouse_position()
   
   # Calculate facing direction
-  facingDirection = (mousePosition - playerPosition).normalized()
+  facingDirection = (get_global_mouse_position() - global_position).normalized()
   # Calculate the player's movement direction
   movementDirection = Vector2(int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")), int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))).normalized()
   # Determining if player is backpedaling

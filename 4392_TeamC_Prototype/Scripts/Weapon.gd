@@ -51,7 +51,7 @@ func _ready():
     
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
     
     # Press a keybind to manually start reloading
     if Input.is_action_just_pressed("reload") and currentMag < magSize:
