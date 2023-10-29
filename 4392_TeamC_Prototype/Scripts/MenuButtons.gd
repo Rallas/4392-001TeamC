@@ -8,10 +8,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-  var playButton = $StartGame
+  var playButton = $Start
   var exitButton = $Quit
   playButton.connect("pressed", self, "_playButton_Pressed")
   exitButton.connect("pressed", self, "_exitButton_Pressed")
+
 
 func _playButton_Pressed():
   #load the first scene
