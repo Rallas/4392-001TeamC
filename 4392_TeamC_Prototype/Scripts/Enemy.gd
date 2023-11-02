@@ -63,24 +63,35 @@ func ReactToNoise(noisePosition, noiseIntensity):
   var distanceToNoise = global_position.distance_to(noisePosition)
   
   if distanceToNoise < noiseIntensity:
-    print("(t=%d) | %s | I HEARD THAT!" % [OS.get_ticks_msec(), name])
     followingNoise = true
     moveTarget = noisePosition
   
 
+var lastAttackTime = 0
+var attackSpeed = 500
 
-var playerBeingHit = null
+
+var AttackableObjects = Array()
 func _process(_delta):
-  if playerBeingHit != null:
-    playerBeingHit.HitByEnemy()
+  if AttackableObjects.size() > 0:
+    
+    if OS.get_ticks_msec() - attackSpeed > lastAttackTime:
+      lastAttackTime = OS.get_ticks_msec()
+      
+      for Item in AttackableObjects:
+        if Item.is_in_group("Player"):
+          Item.HitByEnemy()
+        else:
+          # This is some terrible code, but it works i guess...
+          get_node(str(Item.get_path()) + "/ObjectHealth").HitByEnemy()
     
 
 
 func _on_AttackHitbox_body_entered(body):
-  if body.is_in_group("Player"):
-    playerBeingHit = body
+  if body.is_in_group("Attackable"):
+    AttackableObjects.append(body)
 
 
 func _on_AttackHitbox_body_exited(body):
-  if body.is_in_group("Player"):
-    playerBeingHit = null
+  if body.is_in_group("Attackable"):
+    AttackableObjects.erase(body)

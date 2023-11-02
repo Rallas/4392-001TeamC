@@ -14,7 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #  pass
-onready var PlayerInventory = get_node("/root/RootNode/Player/Inventory")
 
 
 func _on_Area2D_body_entered(body):

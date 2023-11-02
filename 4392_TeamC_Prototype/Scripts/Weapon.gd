@@ -22,11 +22,9 @@ export var bulletRange = 1000		# Pixels traveled before delete
 export var magSize = 8				# Num shots before reloading
 export var reloadTime = 1000		# milliseconds to reload
 
-# Accuracy penalty:
-# I coded this the easy way for now without dealing with trigonometry.
-# A value of (P) means the bullet will target a random point within 
-export var hipfireAccuracyPenalty = 50
-export var aimingAccuracyPenalty = 10
+# Accuracy penalty: Shot direction will between -penalty and penalty radians off of target.
+var hipfireAccuracyPenalty = .65
+var aimingAccuracyPenalty = .15
 ##############################################
 
 
@@ -38,7 +36,6 @@ var doneReloadTime
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
-onready var PlayerInventory = get_node("../Inventory")
 
 var rng = RandomNumberGenerator.new()
 
@@ -74,18 +71,19 @@ func _process(_delta):
             var newBullet = bulletNode.instance()
             get_node(@"/root").add_child(newBullet)
             
-            # Random vector offset. x and y both floats in range [-1,1]
-            var accuracyPenalty = Vector2(rng.randf_range(-1,1), rng.randf_range(-1,1))
             
             # Scale accuracy penalty based on aim/hipfire
+            var accuracyPenalty
             if Input.is_action_pressed("aim"):
-                accuracyPenalty *= aimingAccuracyPenalty
+                accuracyPenalty = rng.randf_range(-aimingAccuracyPenalty, aimingAccuracyPenalty)
             else:
-                accuracyPenalty *= hipfireAccuracyPenalty
+                accuracyPenalty = rng.randf_range(-hipfireAccuracyPenalty, hipfireAccuracyPenalty)
             
+            # Set direction and rotate it by accuracyPenalty
+            var shotAngle = global_position.angle_to_point(get_global_mouse_position())
+            var shotVector = Vector2.LEFT.rotated(shotAngle + accuracyPenalty)
             
-            var shotTarget = get_global_mouse_position() + accuracyPenalty
-            newBullet.InitBullet(shotTarget, global_position, bulletSpeed, bulletRange)
+            newBullet.InitBullet(shotVector, global_position, bulletSpeed, bulletRange)
             
             NC.CreateNoise(newBullet.position, 300)
 

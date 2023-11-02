@@ -14,6 +14,11 @@ config/name="4392 Team C prototype"
 run/main_scene="res://Scenes/DefaultScene.tscn"
 config/icon="res://Sprites/icon.png"
 
+[autoload]
+
+Global="*res://Scripts/GlobalScripts/Global.gd"
+PlayerInventory="*res://Scripts/GlobalScripts/PlayerInventory.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

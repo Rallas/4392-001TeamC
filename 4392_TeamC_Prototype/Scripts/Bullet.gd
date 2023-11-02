@@ -13,9 +13,9 @@ var bulletRange
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
-# Params: target(Vector2), position(Vector2), speed(int), range(int)
-func InitBullet(t, p, s, r):
-  direction = (t - p).normalized()
+# Params: direction(Vector2), position(Vector2), speed(int), range(int)
+func InitBullet(d, p, s, r):
+  direction = d.normalized()
   global_position = p
   bulletSpeed = s
   bulletRange = r

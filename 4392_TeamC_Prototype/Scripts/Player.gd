@@ -10,10 +10,10 @@ signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
-export var totalHealth = 100;
-export var enemyDamage = 20;
+var totalHealth; #Left here for compatibility
+var enemyDamage = 20;
 
-export var moveSpeed = 200
+var moveSpeed = 200
 var speedModifier = 1
 var velocity = Vector2.ZERO
 var inertia = 100
@@ -25,14 +25,22 @@ var moveAndSlideVel
 
 var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
-var baseFootstepIntensity = 0.75
+var baseFootstepIntensity = 0.75 # Multiplier for larger number
+
+var lastHeartbeatTime = 0
+var timeBetweenheartbeats = 400
+var baseHeartbeatIntensity = 40 # Pixel radius
+
 
 var currentHealth
 
 func _ready():
-  currentHealth = totalHealth;
+  currentHealth = Global.PlayerHealthAtLevelStart;
+  totalHealth = Global.PlayerMaxHealth
   emit_signal("updateHealth", currentHealth, totalHealth)
   pass # Replace with function body.
+
+
 
 func _physics_process(_delta):
   velocity = Vector2.ZERO
@@ -67,11 +75,19 @@ func _physics_process(_delta):
     if isBackpedaling:
       speedModifier *= backpedalingModifier 
   
+  # Every set time interval, make a footstep noise if moving.
   if velocity != Vector2.ZERO and OS.get_ticks_msec() - lastFootstepTime > timeBetweenFootsteps:
     lastFootstepTime = OS.get_ticks_msec()
     NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
   
   moveAndSlideVel = move_and_slide(velocity*moveSpeed*speedModifier, Vector2(0,0), false, 4, PI/4, false)
+
+  # Every set time interval, make a 'heartbeat' noise
+  # This prevents a motionless player from being invincible.
+  if OS.get_ticks_msec() - lastHeartbeatTime > timeBetweenheartbeats:
+    lastHeartbeatTime = OS.get_ticks_msec()
+    NC.CreateNoise(global_position, baseHeartbeatIntensity)
+  
 
   for i in get_slide_count():
     var collision = get_slide_collision(i)
@@ -89,7 +105,6 @@ func HitByEnemy():
     lastHitTime = OS.get_ticks_msec()
     if (currentHealth - enemyDamage > 0):
       currentHealth -= enemyDamage
-      print("(t=%d) | OUCH!!!" % OS.get_ticks_msec())
       emit_signal("updateHealth", currentHealth, totalHealth)
     else:
       # TODO: Connect to player death screen

@@ -120,9 +120,11 @@ position = Vector2( 595, 305 )
 position = Vector2( 184, -237 )
 
 [node name="NoiseController" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource( 8 )
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
+[node name="Player" parent="." groups=["Attackable", "Player"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
 scale = Vector2( 0.5, 0.5 )
 
 [node name="HearingCircle" parent="Player/Sprite" index="2"]

@@ -1,6 +1,5 @@
 extends Node
 
-onready var PlayerInventory = get_node("/root/RootNode/Player/Inventory")
 onready var AmmoLabel = get_node("/root/RootNode/UI Container/AmmoLabel")
 
 
