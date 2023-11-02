@@ -75,6 +75,7 @@ func _physics_process(_delta):
   for i in get_slide_count():
     var collision = get_slide_collision(i)
     if collision.collider.is_in_group("movableObject"):
+        NC.CreateNoise(collision.collider.global_position, collision.collider.weight*20)
         collision.collider.apply_central_impulse(-collision.normal*inertia*speedModifier)
 
 var lastHitTime = 0

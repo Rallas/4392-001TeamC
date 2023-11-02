@@ -1,0 +1,150 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Objects/Chair.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/CafeteriaTableRectangle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/CafeteriaTableSquare.tscn" type="PackedScene" id=3]
+
+[node name="Cafeteria" type="Node2D"]
+
+[node name="Chair4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -221, 78 )
+rotation = -2.81842
+
+[node name="Chair5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 161, 25 )
+rotation = -1.80581
+
+[node name="Chair6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 109, 86 )
+rotation = 2.921
+
+[node name="Chair7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 213, 86 )
+rotation = -0.211285
+
+[node name="Chair8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 158, 121 )
+rotation = 1.45849
+
+[node name="Chair9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 163, 158 )
+rotation = -1.32251
+
+[node name="Chair10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 199, 204 )
+
+[node name="Chair11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 114, 209 )
+rotation = 2.53425
+
+[node name="Chair12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 164, 240 )
+rotation = 1.20494
+
+[node name="Chair13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -204, 194 )
+rotation = -3.02646
+
+[node name="Chair14" parent="." instance=ExtResource( 1 )]
+position = Vector2( -102, 201 )
+
+[node name="Chair15" parent="." instance=ExtResource( 1 )]
+position = Vector2( -160, 241 )
+rotation = 1.82061
+
+[node name="Chair16" parent="." instance=ExtResource( 1 )]
+position = Vector2( -151, -55 )
+rotation = 1.76763
+
+[node name="Chair17" parent="." instance=ExtResource( 1 )]
+position = Vector2( -60, -47 )
+rotation = 1.36617
+
+[node name="Chair18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 26, -56 )
+rotation = 1.06767
+
+[node name="Chair19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 136, -55 )
+rotation = 1.87127
+
+[node name="Chair20" parent="." instance=ExtResource( 1 )]
+position = Vector2( -147, -176 )
+rotation = 1.73052
+
+[node name="Chair21" parent="." instance=ExtResource( 1 )]
+position = Vector2( -55, -185 )
+rotation = 1.52149
+
+[node name="Chair22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 20, -177 )
+rotation = 1.81168
+
+[node name="Chair23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, -184 )
+rotation = 1.2723
+
+[node name="Chair24" parent="." instance=ExtResource( 1 )]
+position = Vector2( -113, -145 )
+rotation = -1.33971
+
+[node name="Chair25" parent="." instance=ExtResource( 1 )]
+position = Vector2( -38, -136 )
+rotation = -1.44842
+
+[node name="Chair26" parent="." instance=ExtResource( 1 )]
+position = Vector2( 38, -146 )
+rotation = -1.76013
+
+[node name="Chair27" parent="." instance=ExtResource( 1 )]
+position = Vector2( 126, -137 )
+rotation = -2.15372
+
+[node name="Chair28" parent="." instance=ExtResource( 1 )]
+position = Vector2( -163, -269 )
+rotation = -1.46383
+
+[node name="Chair29" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -270 )
+rotation = -2.01109
+
+[node name="Chair30" parent="." instance=ExtResource( 1 )]
+position = Vector2( 33, -264 )
+rotation = -1.54474
+
+[node name="Chair31" parent="." instance=ExtResource( 1 )]
+position = Vector2( 127, -263 )
+rotation = -1.12977
+
+[node name="Chair" parent="." instance=ExtResource( 1 )]
+position = Vector2( -111, 79 )
+
+[node name="Chair2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -161, 40 )
+rotation = -1.86609
+
+[node name="Chair3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -163, 120 )
+rotation = 1.76015
+
+[node name="Chair32" parent="." instance=ExtResource( 1 )]
+position = Vector2( -161, 156 )
+rotation = -1.80311
+
+[node name="CafeteriaTable" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -223 )
+
+[node name="CafeteriaTable2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -96 )
+
+[node name="CafeteriaTableSquare" parent="." instance=ExtResource( 3 )]
+position = Vector2( -160, 200 )
+
+[node name="CafeteriaTableSquare2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -160, 80 )
+
+[node name="CafeteriaTableSquare3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 80 )
+
+[node name="CafeteriaTableSquare4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 200 )

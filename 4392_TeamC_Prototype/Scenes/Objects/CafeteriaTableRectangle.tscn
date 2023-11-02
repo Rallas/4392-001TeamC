@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Tables.tres" type="TileSet" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 192, 32 )
+
+[node name="CafeteriaTable" type="RigidBody2D"]
+mode = 1
+mass = 20.4082
+gravity_scale = 0.0
+linear_damp = 200.0
+angular_damp = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -6, -1610612736, 0, -5, -1610612736, 0, -4, -1610612736, 0, -3, -1610612736, 0, -2, -1610612736, 0, -1, -1610612736, 0, -65536, -1610612736, 0, -65535, -1610612736, 0, -65534, -1610612736, 0, -65533, -1610612736, 0, -65532, -1610612736, 0, -65531, -1610612736, 0, 65530, -1610612736, 0, 65531, -1610612736, 0, 65532, -1610612736, 0, 65533, -1610612736, 0, 65534, -1610612736, 0, 65535, -1610612736, 0, 0, -1610612736, 0, 1, -1610612736, 0, 2, -1610612736, 0, 3, -1610612736, 0, 4, -1610612736, 0, 5, -1610612736, 0 )

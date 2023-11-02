@@ -10,105 +10,107 @@
 
 [node name="MeetingRoom1" type="Node2D"]
 
+[node name="PaperStack4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -240, 93 )
+
+[node name="Paper4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -260, -19 )
+
+[node name="Paper5" parent="." instance=ExtResource( 7 )]
+position = Vector2( -114, -93 )
+
+[node name="Paper6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 112, 97 )
+
+[node name="PaperStack5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 170, -81 )
+
 [node name="Chair" parent="." instance=ExtResource( 2 )]
-position = Vector2( -3, 118 )
+position = Vector2( -3, -59 )
 rotation = -2.03685
 
 [node name="Chair12" parent="." instance=ExtResource( 2 )]
-position = Vector2( -159, 234 )
+position = Vector2( -159, 57 )
 rotation = 1.84988
 
 [node name="Chair9" parent="." instance=ExtResource( 2 )]
-position = Vector2( -90, 243 )
+position = Vector2( -90, 66 )
 rotation = 1.31481
 
 [node name="Chair10" parent="." instance=ExtResource( 2 )]
-position = Vector2( -12, 232 )
+position = Vector2( -12, 55 )
 rotation = 1.35863
 
 [node name="Chair11" parent="." instance=ExtResource( 2 )]
-position = Vector2( 71, 243 )
+position = Vector2( 71, 66 )
 rotation = 1.4192
 
 [node name="Chair2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 139, 241 )
+position = Vector2( 139, 64 )
 rotation = 0.77429
 
 [node name="Chair3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -214, 173 )
+position = Vector2( -214, -4 )
 rotation = 2.66809
 
 [node name="Chair4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 210, 181 )
+position = Vector2( 210, 4 )
 rotation = -0.173945
 
 [node name="Chair5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 127, 118 )
+position = Vector2( 127, -59 )
 rotation = -1.19805
 
 [node name="Chair6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 49, 107 )
+position = Vector2( 49, -70 )
 rotation = -1.38587
 
 [node name="Chair7" parent="." instance=ExtResource( 2 )]
-position = Vector2( -75, 120 )
+position = Vector2( -75, -57 )
 rotation = -1.57036
 
 [node name="Chair8" parent="." instance=ExtResource( 2 )]
-position = Vector2( -156, 116 )
+position = Vector2( -156, -61 )
 rotation = -1.83041
 
 [node name="MeetingTable" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 192 )
+position = Vector2( 0, 15 )
 
 [node name="PaperStack1" parent="." instance=ExtResource( 3 )]
-position = Vector2( -133, 167 )
+position = Vector2( -133, -10 )
 
 [node name="PaperStack2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 33, 199 )
+position = Vector2( 33, 22 )
 
 [node name="PaperStack3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 133, 180 )
+position = Vector2( 133, 3 )
 rotation = 2.65508
 
+[node name="Paper" parent="." instance=ExtResource( 7 )]
+position = Vector2( -93, -32 )
+
+[node name="Paper2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 168, -32 )
+rotation = 0.606874
+scale = Vector2( 1, 1 )
+
+[node name="Paper3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -170, 36 )
+rotation = 1.919
+scale = Vector2( 1, 1 )
+
 [node name="BoxOpen" type="Sprite" parent="."]
-position = Vector2( -81, 188 )
+position = Vector2( -81, 11 )
 rotation = 3.49343
 texture = ExtResource( 5 )
 
 [node name="BoxOpen2" type="Sprite" parent="."]
-position = Vector2( 83, 149 )
+position = Vector2( 83, -28 )
 rotation = 2.65508
 texture = ExtResource( 5 )
 
 [node name="Plant" parent="." instance=ExtResource( 6 )]
-position = Vector2( -270, 76 )
+position = Vector2( -270, -101 )
 
 [node name="Plant2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 259, 273 )
-
-[node name="PaperStack1" parent="Plant2" instance=ExtResource( 3 )]
-position = Vector2( -499, -3 )
-
-[node name="Paper" parent="Plant2" instance=ExtResource( 7 )]
-position = Vector2( -519, -115 )
-
-[node name="Paper2" parent="Plant2" instance=ExtResource( 7 )]
-position = Vector2( -373, -189 )
-
-[node name="Paper3" parent="Plant2" instance=ExtResource( 7 )]
-position = Vector2( -147, 1 )
-
-[node name="PaperStack2" parent="Plant2" instance=ExtResource( 4 )]
-position = Vector2( -89, -177 )
-
-[node name="Paper" parent="." instance=ExtResource( 7 )]
-position = Vector2( -93, 145 )
-
-[node name="Paper2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 168, 145 )
-rotation = 0.606874
-
-[node name="Paper3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -170, 213 )
-rotation = 1.919
+position = Vector2( 259, 96 )
