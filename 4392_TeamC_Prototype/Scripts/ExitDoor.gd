@@ -1,6 +1,6 @@
 extends Node
 
-onready var Player = get_node("%Player")
+onready var Player = get_node("/root/RootNode/Player")
 
 # Object set to not be instant, so this will be called repeatedly while interacting.
 func Interact():

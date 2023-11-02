@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/AmmoCounter.gd" type="Script" id=2]
@@ -9,13 +9,9 @@
 [ext_resource path="res://Scripts/LevelGenerator.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/NoiseController.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/UpdatePlayerHealth.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/InteractibleObjects/LockedDoor.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/InteractibleObjects/Radio.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/InteractibleObjects/Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/AmmoPickup.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/InteractibleObjects/Exit.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/ExitKey.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/HealthPickup.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Rooms/DebugRoom.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Rooms/KeyRoom.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Rooms/ExitRoom.tscn" type="PackedScene" id=12]
 
 [node name="RootNode" type="Node2D"]
 
@@ -98,42 +94,14 @@ position = Vector2( 591, 5 )
 [node name="Room2" parent="LevelContainer" instance=ExtResource( 5 )]
 position = Vector2( -49, 5 )
 
-[node name="LockedDoor" parent="LevelContainer" instance=ExtResource( 10 )]
-position = Vector2( -705, -33 )
+[node name="DebugRoom" parent="LevelContainer" instance=ExtResource( 10 )]
+position = Vector2( -689, 5 )
 
-[node name="Radio" parent="LevelContainer" instance=ExtResource( 11 )]
-position = Vector2( -714, -179 )
+[node name="KeyRoom" parent="LevelContainer" instance=ExtResource( 11 )]
+position = Vector2( -49, -411 )
 
-[node name="LockedDoor2" parent="LevelContainer" instance=ExtResource( 10 )]
-position = Vector2( -886, -26 )
-resetProgress = true
-
-[node name="Door" parent="LevelContainer" instance=ExtResource( 12 )]
-position = Vector2( -878, -179 )
-
-[node name="AmmoPickup" parent="LevelContainer" instance=ExtResource( 13 )]
-position = Vector2( -785, 170 )
-
-[node name="Exit" parent="LevelContainer" instance=ExtResource( 14 )]
-position = Vector2( 595, 305 )
-
-[node name="ExitKey" parent="LevelContainer" instance=ExtResource( 15 )]
-position = Vector2( 184, -237 )
-
-[node name="HealthPickup" parent="LevelContainer" instance=ExtResource( 16 )]
-position = Vector2( -892, 169 )
-
-[node name="HealthPickup2" parent="LevelContainer" instance=ExtResource( 16 )]
-position = Vector2( -984, 171 )
-
-[node name="HealthPickup3" parent="LevelContainer" instance=ExtResource( 16 )]
-position = Vector2( -1079, 171 )
-
-[node name="AmmoPickup2" parent="LevelContainer" instance=ExtResource( 13 )]
-position = Vector2( -785, 238 )
-
-[node name="AmmoPickup3" parent="LevelContainer" instance=ExtResource( 13 )]
-position = Vector2( -788, 313 )
+[node name="ExitRoom" parent="LevelContainer" instance=ExtResource( 12 )]
+position = Vector2( 591, 517 )
 
 [node name="NoiseController" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -143,14 +111,18 @@ script = ExtResource( 8 )
 unique_name_in_owner = true
 scale = Vector2( 0.5, 0.5 )
 
+[node name="Gray" parent="Player" index="1"]
+visible = true
+
 [node name="HearingCircle" parent="Player/Sprite" index="2"]
+position = Vector2( 6, 6 )
 offset = Vector2( 0, 0 )
 
 [node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]
 scale = Vector2( 2, 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.054902, 0.0431373, 0.0431373, 1 )
+color = Color( 0.054902, 0.0431373, 0.0431373, 0.784314 )
 
 [connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]

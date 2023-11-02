@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/BasicTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/InteractibleObjects/Exit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/FloorTileset.tres" type="TileSet" id=3]
+
+[node name="ExitRoom" type="Node2D"]
+
+[node name="Floors" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 1, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 1, 0, -196609, 0, 0, -262144, 1, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 1, 0, -196606, 0, 0, -196605, 0, 0, -65540, 0, 0, -65539, 1, 0, -65538, 1, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+centered_textures = true
+collision_layer = 8
+collision_mask = 65535
+format = 1
+tile_data = PoolIntArray( -327682, 1, 0, -393215, 1, 0, -262148, 1, 0, -262147, 1, 0, -262146, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -196612, 1, 0, -262141, 1, 0, -131076, 1, 0, -196605, 1, 0, -65540, 1, 0, -131069, 1, 0, -4, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0 )
+
+[node name="Exit" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -50 )

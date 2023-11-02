@@ -1,7 +1,6 @@
 extends Node
 
 # Singleton script to hold some global variables
-
 var CurrentLevel = 1
 
 var PlayerMaxHealth = 100

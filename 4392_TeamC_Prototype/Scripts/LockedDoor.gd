@@ -42,7 +42,7 @@ func Interact():
     # Spawn in a normal door to replace this one
     var newDoor = doorNode.instance()
     newDoor.isClosed = false
-    newDoor.global_position = global_position
+    newDoor.position = position
     get_parent().add_child(newDoor)
     
     # Remove the locked door now that script is done placing a normal door.

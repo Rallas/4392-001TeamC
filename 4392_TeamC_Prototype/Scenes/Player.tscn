@@ -45,6 +45,7 @@ script = SubResource( 2 )
 visible = false
 position = Vector2( -4.50003, 0.5 )
 scale = Vector2( 1.74956, 2.18819 )
+z_index = -200
 texture = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
