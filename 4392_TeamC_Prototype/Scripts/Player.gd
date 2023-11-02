@@ -19,14 +19,15 @@ var velocity = Vector2.ZERO
 var inertia = 100
 var movementDirection = Vector2.ZERO
 var facingDirection = Vector2.ZERO
-var isBackpedaling = 0;
-var backpedalingModifier = 0.6;
+var isBackpedaling = 0
+var backpedalingModifier = 0.6
+var moveAndSlideVel
 
 var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
 var baseFootstepIntensity = 0.75
 
-var currentHealth;
+var currentHealth
 
 func _ready():
   currentHealth = totalHealth;
@@ -70,12 +71,14 @@ func _physics_process(_delta):
     lastFootstepTime = OS.get_ticks_msec()
     NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
   
-  move_and_slide(velocity*moveSpeed*speedModifier, Vector2(0,0), false, 4, PI/4, false)
+  moveAndSlideVel = move_and_slide(velocity*moveSpeed*speedModifier, Vector2(0,0), false, 4, PI/4, false)
 
   for i in get_slide_count():
     var collision = get_slide_collision(i)
     if collision.collider.is_in_group("movableObject"):
-        NC.CreateNoise(collision.collider.global_position, collision.collider.weight*20)
+        if velocity != Vector2.ZERO:
+            if moveAndSlideVel != Vector2.ZERO:
+                NC.CreateNoise(collision.collider.global_position, collision.collider.weight*30)
         collision.collider.apply_central_impulse(-collision.normal*inertia*speedModifier)
 
 var lastHitTime = 0
