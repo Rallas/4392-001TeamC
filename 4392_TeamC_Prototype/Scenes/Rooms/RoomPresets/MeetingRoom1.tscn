@@ -92,12 +92,10 @@ position = Vector2( -93, -32 )
 [node name="Paper2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 168, -32 )
 rotation = 0.606874
-scale = Vector2( 1, 1 )
 
 [node name="Paper3" parent="." instance=ExtResource( 7 )]
 position = Vector2( -170, 36 )
 rotation = 1.919
-scale = Vector2( 1, 1 )
 
 [node name="BoxOpen" type="Sprite" parent="."]
 position = Vector2( -81, 11 )

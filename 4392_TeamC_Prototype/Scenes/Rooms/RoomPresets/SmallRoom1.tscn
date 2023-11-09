@@ -17,7 +17,6 @@ rotation = 0.67291
 [node name="Paper5" parent="." instance=ExtResource( 2 )]
 position = Vector2( -69, 63 )
 rotation = -1.3846
-scale = Vector2( 1, 1 )
 
 [node name="Paper6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 55, 0 )
@@ -30,7 +29,6 @@ rotation = 0.667885
 [node name="Paper8" parent="." instance=ExtResource( 2 )]
 position = Vector2( -23, -22 )
 rotation = 0.530724
-scale = Vector2( 1, 1 )
 
 [node name="Chair" parent="." instance=ExtResource( 1 )]
 position = Vector2( -74, -100 )
@@ -95,7 +93,6 @@ rotation = -0.9265
 [node name="Paper3" parent="Desk6" instance=ExtResource( 2 )]
 position = Vector2( 4.00003, -1.00001 )
 rotation = -1.08681
-scale = Vector2( 1, 1 )
 
 [node name="Desk7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 100, -97 )
