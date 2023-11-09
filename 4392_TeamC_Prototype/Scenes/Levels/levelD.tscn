@@ -1,0 +1,143 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/AmmoCounter.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Rooms/Room4alt.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Rooms/Room2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/TempTutorial.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/LevelGenerator.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/NoiseController.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/UpdatePlayerHealth.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Rooms/Room4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Rooms/KeyRoom.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Rooms/ExitRoom.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Rooms/Room3.tscn" type="PackedScene" id=13]
+
+[node name="RootNode" type="Node2D"]
+
+[node name="UI Container" type="CanvasLayer" parent="."]
+
+[node name="AmmoLabel" type="Label" parent="UI Container"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_top = 5.0
+margin_right = -132.0
+margin_bottom = 19.0
+grow_horizontal = 0
+rect_scale = Vector2( 2, 2 )
+text = "Ammo: ##/##"
+script = ExtResource( 2 )
+
+[node name="HealthLabel" type="Label" parent="UI Container"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -254.0
+margin_top = 45.0
+margin_right = -145.0
+margin_bottom = 59.0
+grow_horizontal = 0
+rect_scale = Vector2( 2, 2 )
+text = "Health: ###/###"
+script = ExtResource( 9 )
+
+[node name="ReloadText" type="Label" parent="UI Container"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -50.0
+margin_bottom = -50.0
+grow_horizontal = 2
+text = "Reloading..."
+
+[node name="TutorialBG" type="ColorRect" parent="UI Container"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0, 0, 0, 0.478431 )
+script = ExtResource( 6 )
+
+[node name="TutorialText" type="Label" parent="UI Container/TutorialBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controls:
+
+WASD to move
+LMB to shoot
+hold RMB to aim
+press R to reload
+hold SHIFT to sprint
+hold CTRL to sneak
+
+press ESC to toggle this tutorial"
+align = 1
+
+[node name="LevelContainer" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="Room" parent="LevelContainer" instance=ExtResource( 13 )]
+
+[node name="Room2" parent="LevelContainer" instance=ExtResource( 3 )]
+position = Vector2( 640, 0 )
+
+[node name="Room3" parent="LevelContainer" instance=ExtResource( 5 )]
+position = Vector2( 640, 640 )
+
+[node name="Room4" parent="LevelContainer" instance=ExtResource( 3 )]
+position = Vector2( 1280, 640 )
+rotation = 1.5708
+
+[node name="Room5" parent="LevelContainer" instance=ExtResource( 13 )]
+position = Vector2( 0, 640 )
+
+[node name="Room6" parent="LevelContainer" instance=ExtResource( 10 )]
+position = Vector2( -640, 0 )
+rotation = -1.5708
+
+[node name="Room7" parent="LevelContainer" instance=ExtResource( 5 )]
+position = Vector2( -640, 640 )
+
+[node name="KeyRoom" parent="LevelContainer" instance=ExtResource( 11 )]
+position = Vector2( -1056, 640 )
+rotation = -1.5708
+
+[node name="ExitRoom" parent="LevelContainer" instance=ExtResource( 12 )]
+position = Vector2( 1280, 129 )
+rotation = 3.14159
+
+[node name="NoiseController" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 8 )
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+scale = Vector2( 0.5, 0.5 )
+
+[node name="HearingCircle" parent="Player/Sprite" index="2"]
+position = Vector2( 6, 6 )
+offset = Vector2( 0, 0 )
+
+[node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]
+scale = Vector2( 2, 2 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.203922, 0.176471, 0.176471, 0.784314 )
+
+[connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
+[connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
+
+[editable path="Player"]
