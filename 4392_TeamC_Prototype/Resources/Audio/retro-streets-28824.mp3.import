@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/retro-streets-28824.mp3-da2a33eda9695c2a9f98dd3ac25713c4.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/retro-streets-28824.mp3"
+dest_files=[ "res://.import/retro-streets-28824.mp3-da2a33eda9695c2a9f98dd3ac25713c4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

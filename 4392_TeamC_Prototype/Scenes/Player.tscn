@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PlayerFacing.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/CameraController.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/gray.PNG" type="Texture" id=5]
+[ext_resource path="res://Resources/Audio/walking-steps-102715.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Sprites/GradientCircle.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/VisionConeLarger.png" type="Texture" id=8]
 
@@ -84,3 +85,8 @@ shadow_item_cull_mask = 2
 current = true
 zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 24.0
+pitch_scale = 2.5

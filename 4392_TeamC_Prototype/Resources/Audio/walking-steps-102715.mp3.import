@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walking-steps-102715.mp3-1951fa26bb78e30e1314d7d5d7e7e721.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/walking-steps-102715.mp3"
+dest_files=[ "res://.import/walking-steps-102715.mp3-1951fa26bb78e30e1314d7d5d7e7e721.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
