@@ -11,6 +11,10 @@ onready var VC = get_node("/root/RootNode/Player/Sprite/VisionCone")
 onready var VCM = get_node("/root/RootNode/Player/Sprite/VisionConeMask")
 
 var MaxDistanceFromPlayer = 500
+var normalScale = Vector2(2,1)
+var targetScale = Vector2(.3,1)
+var lerpSpeedAim = 0.01 # adjust this value to change the speed of interpolation when aiming
+var lerpSpeedHip = 0.02 # adjust this value to change the speed of interpolation when no longer aiming
 
 func _ready():
     current = true # Should already be set in editor, but make this active camera just in case.
@@ -25,12 +29,11 @@ func _process(_delta):
         if cameraTarget.length() > MaxDistanceFromPlayer:
             cameraTarget = MaxDistanceFromPlayer * cameraTarget.normalized()
             
-        
         position = cameraTarget
-        VC.scale = Vector2(1, 1)
-        VCM.scale = Vector2(1, 1)
+        VC.scale = VC.scale.linear_interpolate(targetScale, lerpSpeedAim)
+        VCM.scale = VCM.scale.linear_interpolate(targetScale, lerpSpeedAim)
     else:
         position = Vector2.ZERO
-        VC.scale = Vector2(2, 1)
-        VCM.scale = Vector2(2, 1)
+        VC.scale = VC.scale.linear_interpolate(normalScale, lerpSpeedHip)
+        VCM.scale = VCM.scale.linear_interpolate(normalScale, lerpSpeedHip)
     pass

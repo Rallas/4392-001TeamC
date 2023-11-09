@@ -10,8 +10,8 @@ signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
 
-var totalHealth; #Left here for compatibility
-var enemyDamage = 20;
+var totalHealth #Left here for compatibility
+var enemyDamage = 20
 
 var moveSpeed = 200
 var speedModifier = 1

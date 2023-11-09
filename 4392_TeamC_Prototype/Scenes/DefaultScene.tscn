@@ -111,10 +111,7 @@ script = ExtResource( 8 )
 unique_name_in_owner = true
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Gray" parent="Player" index="1"]
-visible = true
-
-[node name="HearingCircle" parent="Player/Sprite" index="2"]
+[node name="HearingCircle" parent="Player/Sprite" index="4"]
 position = Vector2( 6, 6 )
 offset = Vector2( 0, 0 )
 
@@ -122,7 +119,7 @@ offset = Vector2( 0, 0 )
 scale = Vector2( 2, 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.054902, 0.0431373, 0.0431373, 0.784314 )
+color = Color( 0.203922, 0.176471, 0.176471, 0.784314 )
 
 [connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
