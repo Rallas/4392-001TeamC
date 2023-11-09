@@ -120,14 +120,14 @@ position = Vector2( 240, 48 )
 [node name="Door" parent="." instance=ExtResource( 15 )]
 position = Vector2( 272, -208 )
 
+[node name="AmmoPickup2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 278, 161 )
+
+[node name="HealthPickup" parent="." instance=ExtResource( 16 )]
+position = Vector2( 275, -275 )
+
 [node name="Enemy2" parent="." instance=ExtResource( 12 )]
 position = Vector2( -212, 112 )
-
-[node name="AmmoPickup" parent="Enemy2" instance=ExtResource( 14 )]
-position = Vector2( 490, 49 )
-
-[node name="HealthPickup" parent="Enemy2" instance=ExtResource( 16 )]
-position = Vector2( 487, -387 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 12 )]
 position = Vector2( -231, -236 )
