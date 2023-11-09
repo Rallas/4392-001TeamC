@@ -4,11 +4,16 @@ extends ColorRect
 # Hitting ESC toggles the controls screen
 # It also disappears after 3 seconds if not dismissed manually
 
-var shouldTimeout = true
+var shouldTimeout = false
 var timeout
 
 
 func _ready():
+  visible = false
+  if not Global.AlreadySeenControlPopup:
+    Global.AlreadySeenControlPopup = true
+    visible = true
+    shouldTimeout = true
     timeout = OS.get_ticks_msec() + 3000
     
 

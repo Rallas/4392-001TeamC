@@ -115,10 +115,10 @@ func HitByEnemy():
       # Pause game and wait for a second
       get_tree().paused = true
       yield(get_tree().create_timer(1.0), "timeout")
-      get_tree().paused = false
       
       # After time resumes, go back to main menu
       var _opt = get_tree().change_scene("res://Scenes/StartMenu.tscn")
+      get_tree().paused = false
       
     
     

@@ -6,10 +6,10 @@ onready var Player = get_node("/root/RootNode/Player")
 func Interact():
   if PlayerInventory.carryingKey:
     # Save global values for next level.
-    Global.CurrentLevel += 1
     Global.PlayerHealthAtLevelStart = Player.currentHealth
     
     # Reload scene
     # Once level generation done, this will generate a new (harder) level.
-    var _ret = get_tree().reload_current_scene()
+    Global.CurrentLevel += 1
+    var _ret = get_tree().change_scene(Global.GetSceneForCurrentLevel())
 
