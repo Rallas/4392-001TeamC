@@ -55,23 +55,26 @@ func _physics_process(_delta):
   if Input.is_action_pressed("move_left"):
     velocity.x -= 1
 
-  if Input.is_action_just_pressed("move_down"):
-    footstep.play()
-  if Input.is_action_just_pressed("move_up"):
-    footstep.play()
-  if Input.is_action_just_pressed("move_left"):
-    footstep.play()
-  if Input.is_action_just_pressed("move_right"):
-    footstep.play()
+  # Matthew: Commenting out for now.
+  # I added a different way of doing sounds in the NoiseController.gd script
+  
+  #if Input.is_action_just_pressed("move_down"):
+  #  footstep.play()
+  #if Input.is_action_just_pressed("move_up"):
+  #  footstep.play()
+  #if Input.is_action_just_pressed("move_left"):
+  #  footstep.play()
+  #if Input.is_action_just_pressed("move_right"):
+  #  footstep.play()
     
-  if Input.is_action_just_released("move_down"):
-    footstep.stop()
-  if Input.is_action_just_released("move_up"):
-    footstep.stop()
-  if Input.is_action_just_released("move_left"):
-    footstep.stop()
-  if Input.is_action_just_released("move_right"):
-    footstep.stop()
+  #if Input.is_action_just_released("move_down"):
+  #  footstep.stop()
+  #if Input.is_action_just_released("move_up"):
+  #  footstep.stop()
+  #if Input.is_action_just_released("move_left"):
+  #  footstep.stop()
+  #if Input.is_action_just_released("move_right"):
+  #  footstep.stop()
     
   # Calculate facing direction
   facingDirection = (get_global_mouse_position() - global_position).normalized()
@@ -97,7 +100,7 @@ func _physics_process(_delta):
   # Every set time interval, make a footstep noise if moving.
   if velocity != Vector2.ZERO and OS.get_ticks_msec() - lastFootstepTime > timeBetweenFootsteps:
     lastFootstepTime = OS.get_ticks_msec()
-    NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier)
+    NC.CreateNoise(global_position, baseFootstepIntensity*moveSpeed*speedModifier, "footstep")
   
   moveAndSlideVel = move_and_slide(velocity*moveSpeed*speedModifier, Vector2(0,0), false, 4, PI/4, false)
 
