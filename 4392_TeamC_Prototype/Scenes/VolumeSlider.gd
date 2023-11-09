@@ -1,7 +1,6 @@
 extends Control
 
 onready var bus_index = AudioServer.get_bus_index("Master")
-onready var music_index = AudioServer.get_bus_index("Music")
 onready var music = $Music
 
 # Called when the node enters the scene tree for the first time.  

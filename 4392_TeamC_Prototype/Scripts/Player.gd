@@ -9,6 +9,7 @@ extends KinematicBody2D
 signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var footstep = $Footsteps
 
 var totalHealth #Left here for compatibility
 var enemyDamage = 20
@@ -53,7 +54,25 @@ func _physics_process(_delta):
     velocity.x += 1
   if Input.is_action_pressed("move_left"):
     velocity.x -= 1
-  
+
+  if Input.is_action_just_pressed("move_down"):
+    footstep.play()
+  if Input.is_action_just_pressed("move_up"):
+    footstep.play()
+  if Input.is_action_just_pressed("move_left"):
+    footstep.play()
+  if Input.is_action_just_pressed("move_right"):
+    footstep.play()
+    
+  if Input.is_action_just_released("move_down"):
+    footstep.stop()
+  if Input.is_action_just_released("move_up"):
+    footstep.stop()
+  if Input.is_action_just_released("move_left"):
+    footstep.stop()
+  if Input.is_action_just_released("move_right"):
+    footstep.stop()
+    
   # Calculate facing direction
   facingDirection = (get_global_mouse_position() - global_position).normalized()
   # Calculate the player's movement direction
