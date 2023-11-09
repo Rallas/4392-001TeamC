@@ -1,173 +1,314 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Objects/Chair.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/CafeteriaTableRectangle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Objects/CafeteriaTableSquare.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Objects/Plant.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/PlateWithFood1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/PlateWithFood2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/PlateBroken.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/Cup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/CupSideways.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/Plate.tscn" type="PackedScene" id=10]
 
 [node name="Cafeteria" type="Node2D"]
+position = Vector2( -18, 138 )
 
 [node name="Chair4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -221, 78 )
+position = Vector2( -203, -53.4587 )
 rotation = -2.81842
 
 [node name="Chair5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 161, 25 )
+position = Vector2( 179, -106.459 )
 rotation = -1.80581
 
 [node name="Chair6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 109, 86 )
+position = Vector2( 127, -45.4587 )
 rotation = 2.921
 
 [node name="Chair7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 213, 86 )
+position = Vector2( 231, -45.4587 )
 rotation = -0.211285
 
 [node name="Chair8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 158, 121 )
+position = Vector2( 176, -10.4586 )
 rotation = 1.45849
 
 [node name="Chair9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 163, 158 )
+position = Vector2( 181, 26.5413 )
 rotation = -1.32251
 
 [node name="Chair10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 199, 204 )
+position = Vector2( 217, 72.5413 )
 
 [node name="Chair11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 114, 209 )
+position = Vector2( 132, 77.5413 )
 rotation = 2.53425
 
 [node name="Chair12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 164, 240 )
+position = Vector2( 182, 108.541 )
 rotation = 1.20494
 
 [node name="Chair13" parent="." instance=ExtResource( 1 )]
-position = Vector2( -204, 194 )
+position = Vector2( -186, 62.5413 )
 rotation = -3.02646
 
 [node name="Chair14" parent="." instance=ExtResource( 1 )]
-position = Vector2( -102, 201 )
+position = Vector2( -84, 69.5413 )
 
 [node name="Chair15" parent="." instance=ExtResource( 1 )]
-position = Vector2( -160, 241 )
+position = Vector2( -142, 109.541 )
 rotation = 1.82061
 
 [node name="Chair16" parent="." instance=ExtResource( 1 )]
-position = Vector2( -151, -55 )
+position = Vector2( -133, -186.459 )
 rotation = 1.76763
 
 [node name="Chair17" parent="." instance=ExtResource( 1 )]
-position = Vector2( -60, -47 )
+position = Vector2( -42, -178.459 )
 rotation = 1.36617
 
 [node name="Chair18" parent="." instance=ExtResource( 1 )]
-position = Vector2( 26, -56 )
+position = Vector2( 44, -187.459 )
 rotation = 1.06767
 
 [node name="Chair19" parent="." instance=ExtResource( 1 )]
-position = Vector2( 136, -55 )
+position = Vector2( 154, -186.459 )
 rotation = 1.87127
 
 [node name="Chair20" parent="." instance=ExtResource( 1 )]
-position = Vector2( -147, -176 )
+position = Vector2( -129, -307.459 )
 rotation = 1.73052
 
 [node name="Chair21" parent="." instance=ExtResource( 1 )]
-position = Vector2( -55, -185 )
+position = Vector2( -37, -316.459 )
 rotation = 1.52149
 
 [node name="Chair22" parent="." instance=ExtResource( 1 )]
-position = Vector2( 20, -177 )
+position = Vector2( 38, -308.459 )
 rotation = 1.81168
 
 [node name="Chair23" parent="." instance=ExtResource( 1 )]
-position = Vector2( 152, -184 )
+position = Vector2( 170, -315.459 )
 rotation = 1.2723
 
 [node name="Chair24" parent="." instance=ExtResource( 1 )]
-position = Vector2( -113, -145 )
+position = Vector2( -95, -276.459 )
 rotation = -1.33971
 
 [node name="Chair25" parent="." instance=ExtResource( 1 )]
-position = Vector2( -38, -136 )
+position = Vector2( -20, -267.459 )
 rotation = -1.44842
 
 [node name="Chair26" parent="." instance=ExtResource( 1 )]
-position = Vector2( 38, -146 )
+position = Vector2( 56, -277.459 )
 rotation = -1.76013
 
 [node name="Chair27" parent="." instance=ExtResource( 1 )]
-position = Vector2( 126, -137 )
+position = Vector2( 144, -268.459 )
 rotation = -2.15372
 
 [node name="Chair28" parent="." instance=ExtResource( 1 )]
-position = Vector2( -163, -269 )
+position = Vector2( -145, -400.459 )
 rotation = -1.46383
 
 [node name="Chair29" parent="." instance=ExtResource( 1 )]
-position = Vector2( -64, -270 )
+position = Vector2( -46, -401.459 )
 rotation = -2.01109
 
 [node name="Chair30" parent="." instance=ExtResource( 1 )]
-position = Vector2( 33, -264 )
+position = Vector2( 51, -395.459 )
 rotation = -1.54474
 
 [node name="Chair31" parent="." instance=ExtResource( 1 )]
-position = Vector2( 127, -263 )
+position = Vector2( 145, -394.459 )
 rotation = -1.12977
 
 [node name="Chair" parent="." instance=ExtResource( 1 )]
-position = Vector2( -111, 79 )
+position = Vector2( -93, -52.4587 )
 
 [node name="Chair2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -161, 40 )
+position = Vector2( -143, -91.4587 )
 rotation = -1.86609
 
 [node name="Chair3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -163, 120 )
+position = Vector2( -145, -11.4587 )
 rotation = 1.76015
 
 [node name="Chair32" parent="." instance=ExtResource( 1 )]
-position = Vector2( -161, 156 )
+position = Vector2( -143, 24.5413 )
 rotation = -1.80311
 
 [node name="CafeteriaTable" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -223 )
+position = Vector2( 18, -354.459 )
+
+[node name="Plate" parent="CafeteriaTable" instance=ExtResource( 10 )]
+position = Vector2( -163, -20 )
+
+[node name="Plate2" parent="CafeteriaTable" instance=ExtResource( 10 )]
+position = Vector2( 21, 20 )
+
+[node name="PlateWithFood1" parent="CafeteriaTable" instance=ExtResource( 5 )]
+position = Vector2( -64, -23 )
+
+[node name="PlateWithFood2" parent="CafeteriaTable" instance=ExtResource( 5 )]
+position = Vector2( 125, -21 )
+
+[node name="Cup" parent="CafeteriaTable" instance=ExtResource( 8 )]
+position = Vector2( -173, -10 )
+
+[node name="CupSideways" parent="CafeteriaTable" instance=ExtResource( 9 )]
+position = Vector2( 35, 11 )
+rotation = -0.523599
+
+[node name="CupSideways2" parent="CafeteriaTable" instance=ExtResource( 9 )]
+position = Vector2( -139, 23 )
+rotation = 3.44528
+
+[node name="Cup2" parent="CafeteriaTable" instance=ExtResource( 8 )]
+position = Vector2( 115, -11 )
 
 [node name="CafeteriaTable2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -96 )
+position = Vector2( 18, -227.459 )
+
+[node name="Cup" parent="CafeteriaTable2" instance=ExtResource( 8 )]
+position = Vector2( -139, 17 )
+
+[node name="Cup4" parent="CafeteriaTable2" instance=ExtResource( 8 )]
+position = Vector2( -132, -7 )
+
+[node name="Cup2" parent="CafeteriaTable2" instance=ExtResource( 8 )]
+position = Vector2( -45, -17 )
+
+[node name="Cup3" parent="CafeteriaTable2" instance=ExtResource( 8 )]
+position = Vector2( 143, 9 )
+
+[node name="PlateWithFood1" parent="CafeteriaTable2" instance=ExtResource( 5 )]
+position = Vector2( -119, -15 )
+
+[node name="Plate" parent="CafeteriaTable2" instance=ExtResource( 10 )]
+position = Vector2( 33, -15 )
+
+[node name="PlateBroken" parent="CafeteriaTable2" instance=ExtResource( 7 )]
+position = Vector2( 139, -20 )
+
+[node name="PlateWithFood2" parent="CafeteriaTable2" instance=ExtResource( 6 )]
+position = Vector2( 131, 17 )
+
+[node name="Plate2" parent="CafeteriaTable2" instance=ExtResource( 10 )]
+position = Vector2( -66, 16 )
+
+[node name="CupSideways" parent="CafeteriaTable2" instance=ExtResource( 9 )]
+position = Vector2( 121, -7.00001 )
+rotation = 2.0944
 
 [node name="CafeteriaTableSquare" parent="." instance=ExtResource( 3 )]
-position = Vector2( -160, 200 )
+position = Vector2( -142, 68.5413 )
+
+[node name="PlateWithFood2" parent="CafeteriaTableSquare" instance=ExtResource( 6 )]
+position = Vector2( -18, -2 )
+
+[node name="Cup" parent="CafeteriaTableSquare" instance=ExtResource( 8 )]
+position = Vector2( -6, 6 )
+
+[node name="CupSideways" parent="CafeteriaTableSquare" instance=ExtResource( 9 )]
+position = Vector2( 4, -23 )
+rotation = 0.172788
 
 [node name="CafeteriaTableSquare2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -160, 80 )
+position = Vector2( -142, -51.4587 )
+
+[node name="Plate" parent="CafeteriaTableSquare2" instance=ExtResource( 10 )]
+position = Vector2( -5, -16 )
 
 [node name="CafeteriaTableSquare3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 80 )
+position = Vector2( 178, -51.4587 )
+
+[node name="Plate" parent="CafeteriaTableSquare3" instance=ExtResource( 10 )]
+position = Vector2( -19, 1 )
+
+[node name="PlateWithFood1" parent="CafeteriaTableSquare3" instance=ExtResource( 5 )]
+position = Vector2( -3, 19 )
+
+[node name="Cup" parent="CafeteriaTableSquare3" instance=ExtResource( 8 )]
+position = Vector2( 9, 9 )
+
+[node name="CupSideways" parent="CafeteriaTableSquare3" instance=ExtResource( 9 )]
+position = Vector2( 17, -22 )
+rotation = 0.698132
 
 [node name="CafeteriaTableSquare4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 200 )
+position = Vector2( 178, 68.5413 )
+
+[node name="PlateWithFood1" parent="CafeteriaTableSquare4" instance=ExtResource( 5 )]
+position = Vector2( 1, 16 )
+
+[node name="PlateWithFood2" parent="CafeteriaTableSquare4" instance=ExtResource( 6 )]
+position = Vector2( 1, -22 )
+
+[node name="Cup" parent="CafeteriaTableSquare4" instance=ExtResource( 8 )]
+position = Vector2( 7, 5 )
+
+[node name="CupSideways" parent="CafeteriaTableSquare4" instance=ExtResource( 9 )]
+position = Vector2( -12, -10 )
+rotation = -3.75769
 
 [node name="Plant" parent="." instance=ExtResource( 4 )]
-position = Vector2( -273, -250 )
+position = Vector2( -255, -381.459 )
 
 [node name="Plant2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -273, -70 )
+position = Vector2( -255, -201.459 )
 rotation = -2.78306
 
 [node name="Plant3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -273, -160 )
+position = Vector2( -255, -291.459 )
 rotation = 0.900972
 
 [node name="Plant4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -271, 68 )
+position = Vector2( -253, -63.4587 )
 
 [node name="Plant5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -271, 248 )
+position = Vector2( -253, 116.541 )
 rotation = -2.78306
 
 [node name="Plant6" parent="." instance=ExtResource( 4 )]
-position = Vector2( -271, 158 )
+position = Vector2( -253, 26.5414 )
 rotation = 0.900972
+
+[node name="PlateBroken" parent="." instance=ExtResource( 7 )]
+position = Vector2( -195, -159.459 )
+
+[node name="PlateBroken2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -31, 6.54132 )
+rotation = 0.174533
+
+[node name="PlateBroken3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 225, -315.459 )
+rotation = 3.14159
+
+[node name="PlateBroken4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -88, -406.459 )
+rotation = -0.872665
+
+[node name="PlateBroken5" parent="." instance=ExtResource( 7 )]
+position = Vector2( -106, 119.541 )
+rotation = 1.5708
+
+[node name="PlateBroken6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 148, 22.5413 )
+rotation = 0.785398
+
+[node name="PlateBroken7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 52, -106.459 )
+rotation = -0.785398
+
+[node name="CupSideways" parent="." instance=ExtResource( 9 )]
+position = Vector2( -84, -126 )
+rotation = -0.705113
+
+[node name="CupSideways2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, -409 )
+rotation = -0.703368
+
+[node name="CupSideways3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4, 106 )
