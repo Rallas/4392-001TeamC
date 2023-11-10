@@ -12,4 +12,4 @@ func _ready():
   optionsButton.connect("pressed", self, "_optionsButton_Pressed")  
 
 func _optionsButton_Pressed():
-  var _opt = get_tree().change_scene("res://Scenes/OptionsMenu.tscn")
+  var _opt = get_tree().change_scene("res://Scenes/Settings.tscn")

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/StartButton.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Start.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Quit.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Options.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Settings1.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/OptionButton.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/ExitButton.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Credits.gd" type="Script" id=7]
+[ext_resource path="res://Resources/Credits.png" type="Texture" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -22,13 +24,13 @@ margin_right = 103.0
 margin_bottom = -34.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_right = 206.0
+margin_right = 221.0
 margin_bottom = 98.0
 script = ExtResource( 1 )
 
 [node name="Start" type="Button" parent="VBoxContainer/CenterContainer"]
-margin_left = 30.0
-margin_right = 176.0
+margin_left = 37.0
+margin_right = 183.0
 margin_bottom = 98.0
 icon = ExtResource( 2 )
 flat = true
@@ -36,12 +38,12 @@ icon_align = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 102.0
-margin_right = 206.0
+margin_right = 221.0
 margin_bottom = 215.0
 script = ExtResource( 5 )
 
 [node name="Options" type="Button" parent="VBoxContainer/CenterContainer2"]
-margin_right = 206.0
+margin_right = 221.0
 margin_bottom = 113.0
 icon = ExtResource( 4 )
 flat = true
@@ -49,14 +51,31 @@ icon_align = 1
 
 [node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 219.0
-margin_right = 206.0
+margin_right = 221.0
 margin_bottom = 332.0
 script = ExtResource( 6 )
 
 [node name="Quit" type="Button" parent="VBoxContainer/CenterContainer3"]
-margin_left = 38.0
-margin_right = 167.0
+margin_left = 46.0
+margin_right = 175.0
 margin_bottom = 113.0
 icon = ExtResource( 3 )
 flat = true
 icon_align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -205.0
+margin_top = -151.0
+margin_right = -8.0
+margin_bottom = -48.0
+script = ExtResource( 7 )
+
+[node name="Credits" type="Button" parent="VBoxContainer2"]
+margin_right = 197.0
+margin_bottom = 103.0
+icon = ExtResource( 8 )
+flat = true
