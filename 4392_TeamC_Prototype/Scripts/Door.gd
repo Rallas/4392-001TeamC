@@ -23,5 +23,5 @@ func updateState():
 # Object set to not be instant, so this will be called repeatedly while interacting.
 func Interact():
   isClosed = not isClosed
-  NC.CreateNoise(global_position, noiseIntensity)
+  NC.CreateNoise(global_position, noiseIntensity, "dooropen")
   updateState()

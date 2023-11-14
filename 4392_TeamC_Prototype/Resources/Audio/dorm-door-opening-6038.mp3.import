@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dorm-door-opening-6038.mp3-c18f28609a36bed2efb2f88f1aa3213f.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/dorm-door-opening-6038.mp3"
+dest_files=[ "res://.import/dorm-door-opening-6038.mp3-c18f28609a36bed2efb2f88f1aa3213f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
