@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/AmmoCounter.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Rooms/Tutorial1_Room.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ExitKey.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/TempTutorial.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/LevelGenerator.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/NoiseController.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/UpdatePlayerHealth.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/InteractibleObjects/LockedDoubleDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/BasicTileset.tres" type="TileSet" id=11]
+[ext_resource path="res://Resources/FloorTileset.tres" type="TileSet" id=12]
 
 [node name="RootNode" type="Node2D"]
 
@@ -87,6 +91,30 @@ script = ExtResource( 7 )
 
 [node name="Room" parent="LevelContainer" instance=ExtResource( 3 )]
 
+[node name="ExitTrigger" type="Node2D" parent="LevelContainer"]
+visible = false
+
+[node name="Floors2" type="TileMap" parent="LevelContainer/ExitTrigger"]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1310719, 1, 0, 1245184, 0, 0, 1245185, 0, 0, 1376253, 0, 0, 1376254, 0, 0, 1376255, 0, 0, 1310720, 0, 0, 1310721, 1, 0, 1310722, 0, 0, 1441789, 0, 0, 1441790, 0, 0, 1441791, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1507325, 0, 0, 1507326, 0, 0, 1507327, 0, 0, 1441792, 1, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1572861, 0, 0, 1572862, 0, 0, 1572863, 1, 0, 1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0, 1638397, 0, 0, 1638398, 0, 0, 1638399, 0, 0, 1572864, 0, 0, 1572865, 0, 0, 1572866, 0, 0, 1703933, 0, 0, 1703934, 0, 0, 1703935, 1, 0, 1638400, 0, 0, 1638401, 1, 0, 1638402, 0, 0 )
+
+[node name="Walls2" type="TileMap" parent="LevelContainer/ExitTrigger"]
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 32, 32 )
+centered_textures = true
+collision_layer = 8
+collision_mask = 65535
+format = 1
+tile_data = PoolIntArray( 786421, 1, 0, 786427, 1, 0, 851963, 1, 0, 1179638, 1, 0, 1179639, 1, 0, 1245182, 1, 0, 1179649, 1, 0, 1310716, 1, 0, 1310717, 1, 0, 1310718, 1, 0, 1245185, 1, 0, 1245186, 1, 0, 1245187, 1, 0, 1376252, 1, 0, 1310723, 1, 0, 1441788, 1, 0, 1376259, 1, 0, 1507324, 1, 0, 1441795, 1, 0, 1572860, 1, 0, 1507331, 1, 0, 1638396, 1, 0, 1572867, 1, 0, 1703932, 1, 0, 1703933, 1, 0, 1703934, 1, 0, 1703935, 1, 0, 1638400, 1, 0, 1638401, 1, 0, 1638402, 1, 0, 1638403, 1, 0 )
+
+[node name="LockedDoubleDoor3" parent="LevelContainer/ExitTrigger" instance=ExtResource( 10 )]
+position = Vector2( 0, 592 )
+
+[node name="ExitKey" parent="LevelContainer/ExitTrigger" instance=ExtResource( 5 )]
+position = Vector2( 1, 720 )
+
 [node name="NoiseController" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource( 8 )
@@ -95,6 +123,7 @@ script = ExtResource( 8 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 unique_name_in_owner = true
+position = Vector2( 0, -150 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="HearingCircle" parent="Player/Sprite" index="2"]
@@ -105,9 +134,10 @@ offset = Vector2( 0, 0 )
 scale = Vector2( 2, 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.203922, 0.176471, 0.176471, 0.784314 )
+color = Color( 0.517647, 0.454902, 0.454902, 0.784314 )
 
 [connection signal="updateHealth" from="Player" to="UI Container/HealthLabel" method="_on_Player_updateHealth"]
 [connection signal="updateAmmo" from="Player/DefaultWeapon" to="UI Container/AmmoLabel" method="_on_DefaultWeapon_updateAmmo"]
 
+[editable path="LevelContainer/Room"]
 [editable path="Player"]

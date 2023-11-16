@@ -10,6 +10,7 @@ export var isClosed = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+  
   updateState()
   pass
 
@@ -17,11 +18,12 @@ func updateState():
   if isClosed:
       ColliderNode.disabled = false
       LightOccluderNode.visible = true
-      SpriteNode.texture = preload("res://Sprites/Closed_Door_Unlocked.png")
+      SpriteNode.texture = preload("res://Sprites/ClosedUnlockedDoubleDoor.png")
+
   else:
       ColliderNode.disabled = true
       LightOccluderNode.visible = false
-      SpriteNode.texture = preload("res://Sprites/Open_Door_Unlocked.png")
+      SpriteNode.texture = preload("res://Sprites/OpenUnlockedDoubleDoor.png")
 
 # Object set to not be instant, so this will be called repeatedly while interacting.
 func Interact():
