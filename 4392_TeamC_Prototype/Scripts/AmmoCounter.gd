@@ -12,7 +12,7 @@ func _ready():
   magSize = 0
   reserveAmmo = 0
 
-func _on_DefaultWeapon_updateAmmo(m, s, r):
+func UpdateAmmo(m, s, r):
   currentMag = m
   magSize = s
   reserveAmmo = r

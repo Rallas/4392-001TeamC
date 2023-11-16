@@ -1,6 +1,6 @@
 extends Node
 
-onready var AmmoLabel = get_node("/root/RootNode/UI Container/AmmoLabel")
+onready var UIController = get_node("/root/RootNode/UI")
 
 
 # Declare member variables here. Examples:
@@ -21,7 +21,6 @@ func _ready():
 func _on_Area2D_body_entered(body):
   if body.is_in_group("Player"):
     PlayerInventory.numBullets += pickupBullets
-    AmmoLabel.reserveAmmo = PlayerInventory.numBullets
-    AmmoLabel.updateLabel()
+    UIController.UpdateAmmo(null, null, PlayerInventory.numBullets)
     
     queue_free()

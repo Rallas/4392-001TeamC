@@ -11,7 +11,6 @@ extends Node2D
 # TODO: Add a variable to configure amount of noise a shot makes
 # TODO: Make noise on reload
 
-signal updateAmmo(currentMag, magSize, reserveAmmo)
 
 ##############################################
 # Configurable Weapon properties
@@ -36,16 +35,16 @@ var doneReloadTime
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var UIController = get_node("/root/RootNode/UI")
 
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    currentMag = magSize
-    nextShotTime = OS.get_ticks_msec()
-    reloading = false
-    emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
-    
+  currentMag = magSize
+  nextShotTime = OS.get_ticks_msec()
+  reloading = false
+  UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -64,7 +63,7 @@ func _process(_delta):
         else:
             # Fire a shot
             currentMag -= 1
-            emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
+            UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
             nextShotTime = OS.get_ticks_msec() + fireRate
         
             # Instantiate a new bullet in the scene
@@ -94,7 +93,7 @@ func StartReload():
       
     reloading = true
     doneReloadTime = OS.get_ticks_msec() + reloadTime
-    get_node(@"/root/RootNode/UI Container/ReloadText").visible = true
+    get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = true
     
 
 func StopReload():
@@ -105,8 +104,8 @@ func StopReload():
     currentMag += numToLoad
     PlayerInventory.numBullets -= numToLoad
     
-    emit_signal("updateAmmo", currentMag, magSize, PlayerInventory.numBullets)
-    get_node(@"/root/RootNode/UI Container/ReloadText").visible = false
+    UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
+    get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = false
     
 
 

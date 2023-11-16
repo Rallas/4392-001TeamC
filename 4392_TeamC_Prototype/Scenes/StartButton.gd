@@ -12,4 +12,5 @@ func _ready():
     playButton.connect("pressed", self, "_playButton_Pressed")
       
 func _playButton_Pressed():
-    var _ret = get_tree().change_scene(Global.GetSceneForLevel(1))
+  Global.CurrentLevel = 1
+  var _ret = get_tree().change_scene(Global.GetSceneForLevel(1))

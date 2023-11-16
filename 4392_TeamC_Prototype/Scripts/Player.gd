@@ -6,9 +6,9 @@ extends KinematicBody2D
 # TODO: Add code logic to make the player move slower while 'backpedaling'
 # TODO: Setup player health, enemy damage, etc...
 #warning-ignore:RETURN_VALUE_DISCARDED
-signal updateHealth(currentHealth, totalHealth)
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var UIController = get_node("/root/RootNode/UI")
 onready var footstep = $Footsteps
 
 var totalHealth #Left here for compatibility
@@ -38,7 +38,7 @@ var currentHealth
 func _ready():
   currentHealth = Global.PlayerHealthAtLevelStart;
   totalHealth = Global.PlayerMaxHealth
-  emit_signal("updateHealth", currentHealth, totalHealth)
+  UIController.UpdateHealth(currentHealth, totalHealth)
   pass # Replace with function body.
 
 
@@ -127,19 +127,25 @@ func HitByEnemy():
     lastHitTime = OS.get_ticks_msec()
     if (currentHealth - enemyDamage > 0):
       currentHealth -= enemyDamage
-      emit_signal("updateHealth", currentHealth, totalHealth)
+      UIController.UpdateHealth(currentHealth, totalHealth)
     else:
       # TODO: Connect to player death screen
-      emit_signal("updateHealth", 0, totalHealth)
+      UIController.UpdateHealth(0, totalHealth)
       
       print("Player is Dead!!!")
       
+      # Delete all current bullets
+      for node in get_tree().get_nodes_in_group("Bullet"):
+        node.queue_free()
+        
       # Pause game and wait for a second
       get_tree().paused = true
       yield(get_tree().create_timer(1.0), "timeout")
       
       # After time resumes, go back to main menu
       var _opt = get_tree().change_scene("res://Scenes/StartMenu.tscn")
+      
+      
       get_tree().paused = false
       
     

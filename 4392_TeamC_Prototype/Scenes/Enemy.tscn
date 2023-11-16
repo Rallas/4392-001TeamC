@@ -17,6 +17,7 @@ bg_color = Color( 0.372549, 0.372549, 0.372549, 1 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemy", "NoiseListener"]]
 light_mask = 2
+scale = Vector2( 0.75, 0.75 )
 collision_layer = 2
 collision_mask = 65535
 script = ExtResource( 2 )
