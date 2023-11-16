@@ -131,8 +131,7 @@ func HitByEnemy():
     else:
       # TODO: Connect to player death screen
       UIController.UpdateHealth(0, totalHealth)
-      
-      print("Player is Dead!!!")
+      UIController.GameOver()
       
       # Delete all current bullets
       for node in get_tree().get_nodes_in_group("Bullet"):
@@ -140,7 +139,7 @@ func HitByEnemy():
         
       # Pause game and wait for a second
       get_tree().paused = true
-      yield(get_tree().create_timer(1.0), "timeout")
+      yield(get_tree().create_timer(2.5), "timeout")
       
       # After time resumes, go back to main menu
       var _opt = get_tree().change_scene("res://Scenes/StartMenu.tscn")

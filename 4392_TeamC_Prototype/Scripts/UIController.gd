@@ -26,3 +26,9 @@ func UpdateAmmo(currentMag = null, magSize = null, numBullets = null):
 
 func UpdateHealth(current, maxHealth):
   get_node("./HUD/HealthLabel").text = "Health: %d/%d" % [current, maxHealth]
+  
+func GameOver():
+  get_node("./GameOver").visible = true
+  get_node("./HUD").visible = false
+  print("game over")
+  
