@@ -18,10 +18,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -103.0
-margin_top = -366.0
-margin_right = 103.0
-margin_bottom = -34.0
+margin_left = -110.5
+margin_top = -439.0
+margin_right = 110.5
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_right = 221.0
@@ -49,10 +48,23 @@ icon = ExtResource( 4 )
 flat = true
 icon_align = 1
 
-[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 219.0
 margin_right = 221.0
-margin_bottom = 332.0
+margin_bottom = 322.0
+script = ExtResource( 7 )
+
+[node name="Credits" type="Button" parent="VBoxContainer/CenterContainer4"]
+margin_left = 12.0
+margin_right = 209.0
+margin_bottom = 103.0
+icon = ExtResource( 8 )
+flat = true
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 326.0
+margin_right = 221.0
+margin_bottom = 439.0
 script = ExtResource( 6 )
 
 [node name="Quit" type="Button" parent="VBoxContainer/CenterContainer3"]
@@ -62,20 +74,3 @@ margin_bottom = 113.0
 icon = ExtResource( 3 )
 flat = true
 icon_align = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -205.0
-margin_top = -151.0
-margin_right = -8.0
-margin_bottom = -48.0
-script = ExtResource( 7 )
-
-[node name="Credits" type="Button" parent="VBoxContainer2"]
-margin_right = 197.0
-margin_bottom = 103.0
-icon = ExtResource( 8 )
-flat = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Resources/Back.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/BackBotton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/ScrollCredits.gd" type="Script" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,17 +13,201 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -117.5
-margin_top = -119.0
-margin_right = 117.5
-margin_bottom = 119.0
-text = "Developed by Clueless
+margin_left = -961.0
+margin_top = -427.0
+margin_right = 961.0
+margin_bottom = 427.0
+grow_horizontal = 0
+bbcode_enabled = true
+bbcode_text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Developed by Clueless
+
+
+
+
+
+
+
+
 
 Developers:
 Declan Quinn
 Faith Gutierrez
 Matthew McClure
-Noah Hayes"
+Noah Hayes
+
+
+
+
+
+
+
+
+
+Art:
+https://aiadev.itch.io/top-down-horror-assets
+https://vittles.itch.io/rotoscoped-zombie-and-soldier
+
+
+
+
+
+
+
+
+Sounds:
+TODO
+
+
+
+
+
+
+
+
+
+
+"
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Developed by Clueless
+
+
+
+
+
+
+
+
+
+Developers:
+Declan Quinn
+Faith Gutierrez
+Matthew McClure
+Noah Hayes
+
+
+
+
+
+
+
+
+
+Art:
+https://aiadev.itch.io/top-down-horror-assets
+https://vittles.itch.io/rotoscoped-zombie-and-soldier
+
+
+
+
+
+
+
+
+Sounds:
+TODO
+
+
+
+
+
+
+
+
+
+
+"
+script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
