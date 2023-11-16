@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var UIProgressBar = get_node("./UnlockProgressUI/ProgressBar")
 var doorNode = preload("res://Scenes/InteractibleObjects/Door.tscn")
 
 export var resetProgress = false
@@ -17,6 +18,8 @@ var inactiveInterval = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+  UIProgressBar.max_value = totalTimeToUnlock
+  UIProgressBar.visible = false
   pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,10 +28,16 @@ func _process(_delta):
   if resetProgress and timeToUnlock < totalTimeToUnlock:
     if OS.get_ticks_msec() - lastInteractTime > inactiveInterval:
       timeToUnlock = totalTimeToUnlock
+      UIProgressBar.value = timeToUnlock
+      UIProgressBar.visible = false
+      
 
 # Object set to not be instant, so this will be called repeatedly while interacting.
 func Interact():
-  print("%d percent remaining" % [timeToUnlock])
+  if(timeToUnlock < totalTimeToUnlock):
+    UIProgressBar.visible = true
+    
+  UIProgressBar.value = timeToUnlock
   timeToUnlock -= 1
   
   lastInteractTime = OS.get_ticks_msec()
