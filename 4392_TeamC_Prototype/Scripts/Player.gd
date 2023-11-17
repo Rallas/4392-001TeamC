@@ -24,6 +24,8 @@ var isBackpedaling = 0
 var backpedalingModifier = 0.6
 var moveAndSlideVel
 
+var noiseIntensity = 100
+
 var lastFootstepTime = 0
 var timeBetweenFootsteps = 350
 var baseFootstepIntensity = 0.75 # Multiplier for larger number
@@ -126,6 +128,7 @@ func HitByEnemy():
   if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
     lastHitTime = OS.get_ticks_msec()
     if (currentHealth - enemyDamage > 0):
+      NC.CreateNoise(global_position, noiseIntensity)
       currentHealth -= enemyDamage
       UIController.UpdateHealth(currentHealth, totalHealth)
     else:
