@@ -1,16 +1,306 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/InteractibleObjects/Exit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/ExitKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Levels/TriggerText.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/LevelGenerator.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/NoiseController.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/InteractibleObjects/DoubleDoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Resources/BasicTileset.tres" type="TileSet" id=10]
 [ext_resource path="res://Resources/FloorTileset.tres" type="TileSet" id=11]
-[ext_resource path="res://Scenes/InteractibleObjects/Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/InteractibleObjects/LockedDoor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Objects/PlateWithFood2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Objects/PlateBroken.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Objects/Cup.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Objects/CafeteriaTableSquare.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Objects/Chair.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Objects/CupSideways.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Objects/Plate.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Rooms/RoomPresets/Cubby1.tscn" type="PackedScene" id=19]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 94, 31.5 )
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.001 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "trigger_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.001, 1.0 ]
+}
 
 [node name="RootNode" type="Node2D"]
 
@@ -26,7 +316,7 @@ position = Vector2( 2, 0 )
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -65538, 1, 0, -65537, 1, 0, -131072, 1, 0, -131071, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 196607, 1, 0, 131072, 1, 0, 262143, 1, 0, 196608, 1, 0, 196616, 1, 0, 196617, 1, 0, 327679, 1, 0, 262144, 1, 0, 262152, 1, 0, 262153, 1, 0, 393215, 1, 0, 327680, 1, 0, 327688, 1, 0, 327689, 1, 0, 458751, 1, 0, 393216, 1, 0, 393224, 1, 0, 393225, 1, 0, 524284, 1, 0, 524285, 1, 0, 524286, 1, 0, 524287, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0 )
+tile_data = PoolIntArray( -262148, 0, 0, -262147, 1, 0, -262146, 1, 0, -262145, 1, 0, -327680, 1, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 1, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -4, 0, 0, -3, 0, 0, -2, 1, 0, -1, 0, 0, -65536, 1, 0, -65535, 1, 0, -65534, 0, 0, -65533, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 0, 0, 2, 1, 0, 3, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 1, 0, 131071, 0, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 1, 0, 262146, 0, 0, 262147, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 1, 0, 327682, 0, 0, 327683, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 1, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 0, 0, 458755, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 1, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 1, 0, 589824, 0, 0, 589825, 1, 0, 589826, 0, 0, 589827, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 1, 0, 655360, 0, 0, 655361, 1, 0, 655362, 0, 0, 655363, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 851964, 0, 0, 851965, 0, 0, 851966, 0, 0, 851967, 0, 0, 786432, 1, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 917500, 0, 0, 917501, 0, 0, 917502, 0, 0, 917503, 1, 0, 851968, 0, 0, 851969, 0, 0, 851970, 1, 0, 851971, 0, 0, 983036, 0, 0, 983037, 0, 0, 983038, 0, 0, 983039, 0, 0, 917504, 0, 0, 917505, 1, 0, 917506, 0, 0, 917507, 0, 0, 1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 1, 0, 983041, 1, 0, 983042, 0, 0, 983043, 0, 0, 1114108, 0, 0, 1114109, 0, 0, 1114110, 1, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 1, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1245177, 1, 0, 1245178, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1310713, 0, 0, 1310714, 0, 0, 1310715, 1, 0, 1310716, 0, 0, 1310717, 0, 0, 1310718, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 1, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1376249, 0, 0, 1376250, 0, 0, 1376251, 1, 0, 1376252, 0, 0, 1376253, 0, 0, 1376254, 1, 0, 1376255, 0, 0, 1310720, 1, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 1, 0, 1310725, 0, 0, 1310726, 0, 0, 1441785, 0, 0, 1441786, 0, 0, 1441787, 0, 0, 1441788, 0, 0, 1441789, 0, 0, 1441790, 0, 0, 1441791, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 0, 0, 1376262, 0, 0, 1507321, 0, 0, 1507322, 0, 0, 1507323, 0, 0, 1507324, 0, 0, 1507325, 0, 0, 1507326, 0, 0, 1507327, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 1, 0, 1572857, 0, 0, 1572858, 1, 0, 1572859, 0, 0, 1572860, 0, 0, 1572861, 1, 0, 1572862, 0, 0, 1572863, 0, 0, 1507328, 0, 0, 1507329, 1, 0, 1507330, 1, 0, 1507331, 0, 0, 1507332, 0, 0, 1507333, 0, 0, 1507334, 0, 0, 1638393, 0, 0, 1638394, 0, 0, 1638395, 0, 0, 1638396, 0, 0, 1638397, 0, 0, 1638398, 0, 0, 1638399, 0, 0, 1572864, 0, 0, 1572865, 0, 0, 1572866, 0, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1572870, 0, 0, 1703929, 0, 0, 1703930, 0, 0, 1703931, 0, 0, 1703932, 1, 0, 1703933, 1, 0, 1703934, 1, 0, 1703935, 1, 0, 1638400, 0, 0, 1638401, 0, 0, 1638402, 1, 0, 1638403, 0, 0, 1638404, 1, 0, 1638405, 0, 0, 1638406, 0, 0, 1769465, 0, 0, 1769466, 0, 0, 1769467, 0, 0, 1769468, 1, 0, 1769469, 1, 0, 1769470, 1, 0, 1769471, 1, 0, 1703936, 0, 0, 1703937, 0, 0, 1703938, 0, 0, 1703939, 0, 0, 1703940, 0, 0, 1703941, 0, 0, 1703942, 0, 0, 1835001, 0, 0, 1835002, 0, 0, 1835003, 0, 0, 1835004, 0, 0, 1835005, 0, 0, 1835006, 0, 0, 1835007, 0, 0, 1769472, 0, 0, 1769473, 0, 0, 1769474, 0, 0, 1769475, 0, 0, 1769476, 0, 0, 1769477, 0, 0, 1769478, 0, 0, 1900537, 0, 0, 1900538, 0, 0, 1900539, 0, 0, 1900540, 0, 0, 1900541, 0, 0, 1900542, 0, 0, 1900543, 0, 0, 1835008, 0, 0, 1835009, 0, 0, 1835010, 0, 0, 1835011, 0, 0, 1835012, 0, 0, 1835013, 0, 0, 1835014, 0, 0, 1966078, 0, 0, 1966079, 0, 0, 1900544, 1, 0, 1900545, 0, 0, 2031614, 0, 0, 2031615, 0, 0, 1966080, 0, 0, 1966081, 1, 0, 2097150, 0, 0, 2097151, 1, 0, 2031616, 0, 0, 2031617, 0, 0, 2162686, 0, 0, 2162687, 0, 0, 2097152, 0, 0, 2097153, 1, 0, 2228222, 0, 0, 2228223, 0, 0, 2162688, 0, 0, 2162689, 0, 0, 2293758, 0, 0, 2293759, 0, 0, 2228224, 0, 0, 2228225, 0, 0, 2359294, 0, 0, 2359295, 0, 0, 2293760, 0, 0, 2293761, 0, 0, 2424830, 0, 0, 2424831, 0, 0, 2359296, 1, 0, 2359297, 0, 0, 2359298, 1, 0, 2359299, 0, 0, 2359300, 0, 0, 2359301, 0, 0, 2359302, 0, 0, 2490366, 0, 0, 2490367, 0, 0, 2424832, 0, 0, 2424833, 0, 0, 2424834, 0, 0, 2424835, 0, 0, 2424836, 1, 0, 2424837, 0, 0, 2424838, 0, 0, 2555902, 0, 0, 2555903, 1, 0, 2490368, 0, 0, 2490369, 0, 0, 2490370, 1, 0, 2490371, 1, 0, 2490372, 0, 0, 2490373, 0, 0, 2490374, 0, 0, 2621438, 0, 0, 2621439, 0, 0, 2555904, 0, 0, 2555905, 0, 0, 2555906, 0, 0, 2555907, 0, 0, 2555908, 0, 0, 2555909, 0, 0, 2555910, 0, 0, 2686974, 1, 0, 2686975, 1, 0, 2621440, 0, 0, 2621441, 0, 0, 2621442, 0, 0, 2621443, 0, 0, 2621444, 0, 0, 2621445, 0, 0, 2621446, 1, 0, 2752510, 1, 0, 2752511, 1, 0, 2686976, 0, 0, 2686977, 0, 0, 2686978, 1, 0, 2686979, 1, 0, 2686980, 0, 0, 2686981, 0, 0, 2686982, 1, 0, 2818046, 1, 0, 2818047, 0, 0, 2752512, 1, 0, 2752513, 1, 0, 2752514, 1, 0, 2752515, 1, 0, 2752516, 1, 0, 2752517, 1, 0, 2752518, 1, 0, 2883582, 0, 0, 2883583, 0, 0, 2818048, 0, 0, 2818049, 0, 0, 2818050, 0, 0, 2818051, 0, 0, 2818052, 0, 0, 2818053, 0, 0, 2818054, 0, 0, 2949118, 0, 0, 2949119, 1, 0, 2883584, 0, 0, 2883585, 0, 0, 2883586, 1, 0, 2883587, 1, 0, 2883588, 0, 0, 2883589, 0, 0, 2883590, 0, 0, 3014654, 0, 0, 3014655, 0, 0, 2949120, 1, 0, 2949121, 0, 0, 2949122, 0, 0, 2949123, 0, 0, 2949124, 0, 0, 2949125, 0, 0, 2949126, 0, 0, 3080190, 0, 0, 3080191, 0, 0, 3014656, 0, 0, 3014657, 0, 0, 3145726, 0, 0, 3145727, 0, 0, 3080192, 0, 0, 3080193, 0, 0, 3211262, 0, 0, 3211263, 0, 0, 3145728, 0, 0, 3145729, 0, 0, 3276798, 0, 0, 3276799, 0, 0, 3211264, 0, 0, 3211265, 0, 0, 3342334, 0, 0, 3342335, 0, 0, 3276800, 0, 0, 3276801, 0, 0, 3407870, 0, 0, 3407871, 0, 0, 3342336, 0, 0, 3342337, 0, 0, 3473406, 0, 0, 3473407, 0, 0, 3407872, 0, 0, 3407873, 0, 0, 3538938, 0, 0, 3538939, 0, 0, 3538940, 0, 0, 3538941, 0, 0, 3538942, 0, 0, 3538943, 0, 0, 3473408, 0, 0, 3473409, 0, 0, 3473410, 0, 0, 3473411, 0, 0, 3473412, 0, 0, 3473413, 0, 0, 3604474, 0, 0, 3604475, 0, 0, 3604476, 0, 0, 3604477, 0, 0, 3604478, 0, 0, 3604479, 0, 0, 3538944, 0, 0, 3538945, 0, 0, 3538946, 0, 0, 3538947, 0, 0, 3538948, 0, 0, 3538949, 0, 0, 3670010, 0, 0, 3670011, 0, 0, 3670012, 0, 0, 3670013, 0, 0, 3670014, 0, 0, 3670015, 0, 0, 3604480, 0, 0, 3604481, 0, 0, 3604482, 0, 0, 3604483, 0, 0, 3604484, 0, 0, 3604485, 0, 0, 3735546, 0, 0, 3735547, 0, 0, 3735548, 0, 0, 3735549, 0, 0, 3735550, 0, 0, 3735551, 0, 0, 3670016, 0, 0, 3670017, 0, 0, 3670018, 0, 0, 3670019, 0, 0, 3670020, 0, 0, 3670021, 0, 0, 3801082, 0, 0, 3801083, 0, 0, 3801084, 0, 0, 3801085, 0, 0, 3801086, 0, 0, 3801087, 0, 0, 3735552, 0, 0, 3735553, 0, 0, 3735554, 0, 0, 3735555, 0, 0, 3735556, 0, 0, 3735557, 0, 0, 3866618, 0, 0, 3866619, 0, 0, 3866620, 0, 0, 3866621, 0, 0, 3866622, 0, 0, 3866623, 0, 0, 3801088, 0, 0, 3801089, 0, 0, 3801090, 0, 0, 3801091, 0, 0, 3801092, 0, 0, 3801093, 0, 0, 3932154, 0, 0, 3932155, 0, 0, 3932156, 0, 0, 3932157, 0, 0, 3932158, 0, 0, 3932159, 0, 0, 3866624, 0, 0, 3866625, 0, 0, 3866626, 0, 0, 3866627, 0, 0, 3866628, 0, 0, 3866629, 0, 0, 3997690, 0, 0, 3997691, 0, 0, 3997692, 0, 0, 3997693, 0, 0, 3997694, 0, 0, 3997695, 0, 0, 3932160, 0, 0, 3932161, 0, 0, 3932162, 0, 0, 3932163, 0, 0, 3932164, 0, 0, 3932165, 0, 0, 4063226, 0, 0, 4063227, 0, 0, 4063228, 0, 0, 4063229, 0, 0, 4063230, 0, 0, 4063231, 0, 0, 3997696, 0, 0, 3997697, 0, 0, 3997698, 0, 0, 3997699, 0, 0, 3997700, 0, 0, 3997701, 0, 0 )
 
 [node name="Walls" type="TileMap" parent="LevelContainer/Room"]
 tile_set = ExtResource( 10 )
@@ -35,22 +325,329 @@ centered_textures = true
 collision_layer = 8
 collision_mask = 65535
 format = 1
-tile_data = PoolIntArray( -131075, 1, 0, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -65539, 1, 0, -131070, 1, 0, -3, 1, 0, -65534, 1, 0, 65533, 1, 0, 2, 1, 0, 131069, 1, 0, 65538, 1, 0, 196605, 1, 0, 196606, 1, 0, 196607, 1, 0, 131073, 1, 0, 131074, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 262142, 1, 0, 196609, 1, 0, 196615, 1, 0, 196618, 1, 0, 327678, 1, 0, 262145, 1, 0, 262151, 1, 0, 262154, 1, 0, 393214, 1, 0, 327681, 1, 0, 327687, 1, 0, 327690, 1, 0, 458747, 1, 0, 458748, 1, 0, 458749, 1, 0, 458750, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393225, 1, 0, 393226, 1, 0, 524283, 1, 0, 458762, 1, 0, 589819, 1, 0, 524298, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0 )
+tile_data = PoolIntArray( -262148, 1, 0, -262147, 1, 0, -262146, 1, 0, -262145, 1, 0, -327680, 1, 0, -327679, 1, 0, -327678, 1, 0, -327677, 1, 0, -196612, 1, 0, -262141, 1, 0, -131076, 1, 0, -196605, 1, 0, -65540, 1, 0, -131069, 1, 0, -4, 1, 0, -65533, 1, 0, 65532, 1, 0, 3, 1, 0, 131068, 1, 0, 65539, 1, 0, 196604, 1, 0, 196605, 1, 0, 196606, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 262140, 1, 0, 196611, 1, 0, 327676, 1, 0, 262147, 1, 0, 393212, 1, 0, 327683, 1, 0, 458748, 1, 0, 393219, 1, 0, 524284, 1, 0, 458755, 1, 0, 589820, 1, 0, 524291, 1, 0, 655356, 1, 0, 589827, 1, 0, 720892, 1, 0, 655363, 1, 0, 786428, 1, 0, 720899, 1, 0, 851964, 1, 0, 786435, 1, 0, 917500, 1, 0, 851971, 1, 0, 983036, 1, 0, 917507, 1, 0, 1048572, 1, 0, 983043, 1, 0, 1114108, 1, 0, 1048579, 1, 0, 1179644, 1, 0, 1114115, 1, 0, 1245177, 1, 0, 1245178, 1, 0, 1245179, 1, 0, 1245180, 1, 0, 1245181, 1, 0, 1245182, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1310713, 1, 0, 1245190, 1, 0, 1376249, 1, 0, 1310726, 1, 0, 1441785, 1, 0, 1376262, 1, 0, 1507321, 1, 0, 1441798, 1, 0, 1572857, 1, 0, 1507334, 1, 0, 1638393, 1, 0, 1638394, 1, 0, 1638397, 1, 0, 1638398, 1, 0, 1572870, 1, 0, 1703929, 1, 0, 1703934, 1, 0, 1638406, 1, 0, 1769465, 1, 0, 1769470, 1, 0, 1703942, 1, 0, 1835001, 1, 0, 1835006, 1, 0, 1769478, 1, 0, 1900537, 1, 0, 1900538, 1, 0, 1900539, 1, 0, 1900540, 1, 0, 1900541, 1, 0, 1900542, 1, 0, 1835009, 1, 0, 1835010, 1, 0, 1835011, 1, 0, 1835012, 1, 0, 1835013, 1, 0, 1835014, 1, 0, 1966078, 1, 0, 1900545, 1, 0, 2031614, 1, 0, 1966081, 1, 0, 2097150, 1, 0, 2031617, 1, 0, 2162686, 1, 0, 2097153, 1, 0, 2228222, 1, 0, 2162689, 1, 0, 2293758, 1, 0, 2228225, 1, 0, 2359294, 1, 0, 2293761, 1, 0, 2424830, 1, 0, 2359297, 1, 0, 2359298, 1, 0, 2359299, 1, 0, 2359300, 1, 0, 2359301, 1, 0, 2359302, 1, 0, 2490366, 1, 0, 2424838, 1, 0, 2555902, 1, 0, 2490374, 1, 0, 2621438, 1, 0, 2555910, 1, 0, 2686974, 1, 0, 2621446, 1, 0, 2752510, 1, 0, 2686982, 1, 0, 2818046, 1, 0, 2752518, 1, 0, 2883582, 1, 0, 2818054, 1, 0, 2949118, 1, 0, 2883590, 1, 0, 3014654, 1, 0, 2949121, 1, 0, 2949122, 1, 0, 2949123, 1, 0, 2949124, 1, 0, 2949125, 1, 0, 2949126, 1, 0, 3080190, 1, 0, 3014657, 1, 0, 3145726, 1, 0, 3080193, 1, 0, 3211262, 1, 0, 3145729, 1, 0, 3276798, 1, 0, 3211265, 1, 0, 3342334, 1, 0, 3276801, 1, 0, 3407870, 1, 0, 3342337, 1, 0, 3473406, 1, 0, 3407873, 1, 0, 3538938, 1, 0, 3538939, 1, 0, 3538940, 1, 0, 3538941, 1, 0, 3538942, 1, 0, 3473409, 1, 0, 3473410, 1, 0, 3473411, 1, 0, 3473412, 1, 0, 3473413, 1, 0, 3604474, 1, 0, 3538949, 1, 0, 3670010, 1, 0, 3604485, 1, 0, 3735546, 1, 0, 3670021, 1, 0, 3801082, 1, 0, 3735557, 1, 0, 3866618, 1, 0, 3801093, 1, 0, 3932154, 1, 0, 3866629, 1, 0, 3997690, 1, 0, 3932165, 1, 0, 4063226, 1, 0, 4063227, 1, 0, 4063228, 1, 0, 4063229, 1, 0, 4063230, 1, 0, 4063231, 1, 0, 3997696, 1, 0, 3997697, 1, 0, 3997698, 1, 0, 3997699, 1, 0, 3997700, 1, 0, 3997701, 1, 0 )
 
 [node name="ExitKey" parent="LevelContainer/Room" instance=ExtResource( 5 )]
-position = Vector2( 287, 146 )
+position = Vector2( -132, 1926 )
 
 [node name="Exit" parent="LevelContainer/Room" instance=ExtResource( 3 )]
-position = Vector2( -95, 258 )
+position = Vector2( 144, 1936 )
 
-[node name="Door" parent="LevelContainer/Room" instance=ExtResource( 12 )]
-position = Vector2( 16, 80 )
+[node name="Triggers" type="Node2D" parent="LevelContainer/Room"]
 
-[node name="Door2" parent="LevelContainer/Room" instance=ExtResource( 12 )]
-position = Vector2( -16, 208 )
+[node name="1" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 1, -76 )
+script = ExtResource( 6 )
 
-[node name="LockedDoor" parent="LevelContainer/Room" instance=ExtResource( 13 )]
-position = Vector2( 272, 208 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/1"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/1"]
+margin_left = -342.0
+margin_top = -45.0
+margin_right = -135.0
+margin_bottom = 59.0
+bbcode_enabled = true
+bbcode_text = "[center]You spawn in with a gun. Click your right mouse button to fire"
+visible_characters = 0
+percent_visible = 0.001
+text = "You spawn in with a gun. Click your right mouse button to fire"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/1"]
+anims/RESET = SubResource( 12 )
+anims/trigger_3 = SubResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="2" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 1, 33 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/2"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/2"]
+margin_left = 134.0
+margin_top = -63.0
+margin_right = 341.0
+margin_bottom = 41.0
+bbcode_enabled = true
+bbcode_text = "[center]You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the top right of your screen. "
+visible_characters = 0
+percent_visible = 0.001
+text = "You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the top right of your screen. "
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/2"]
+anims/RESET = SubResource( 14 )
+anims/trigger_3 = SubResource( 15 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="3" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 1, 150 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/3"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/3"]
+margin_left = -342.0
+margin_top = -45.0
+margin_right = -135.0
+margin_bottom = 59.0
+bbcode_enabled = true
+bbcode_text = "[center]The triangle of light emitting from your player is your field of view. You will not be able to see enemies outside of this cone unless they come into hearing distance"
+visible_characters = 0
+percent_visible = 0.001
+text = "The triangle of light emitting from your player is your field of view. You will not be able to see enemies outside of this cone unless they come into hearing distance"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/3"]
+anims/RESET = SubResource( 8 )
+anims/trigger_3 = SubResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="4" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 0, 264 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/4"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/4"]
+margin_left = 135.0
+margin_top = -45.0
+margin_right = 342.0
+margin_bottom = 59.0
+bbcode_enabled = true
+bbcode_text = "[center]Holding right click will make gun fire more accurate but reduce your field of view. Test it out on this enemy."
+visible_characters = 0
+percent_visible = 0.001
+text = "Holding right click will make gun fire more accurate but reduce your field of view. Test it out on this enemy."
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/4"]
+anims/RESET = SubResource( 10 )
+anims/trigger_3 = SubResource( 11 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="5" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( -1, 561 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/5"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/5"]
+margin_left = -338.0
+margin_top = -69.0
+margin_right = -131.0
+margin_bottom = 35.0
+bbcode_enabled = true
+bbcode_text = "[center]Enemies are highly sensitive to sound. Nearly everything you do makes sounds. Move around and shoot to see what sounds are being made."
+visible_characters = 0
+percent_visible = 0.001
+text = "Enemies are highly sensitive to sound. Nearly everything you do makes sounds. Move around and shoot to see what sounds are being made."
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/5"]
+anims/RESET = SubResource( 16 )
+anims/trigger_3 = SubResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="6" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 1, 757 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/6"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/6"]
+margin_left = 232.0
+margin_top = -69.0
+margin_right = 439.0
+margin_bottom = 35.0
+bbcode_enabled = true
+bbcode_text = "[center]If enemies hear the sounds you make, they will chase and attack you. "
+visible_characters = 0
+percent_visible = 0.001
+text = "If enemies hear the sounds you make, they will chase and attack you. "
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/6"]
+anims/RESET = SubResource( 18 )
+anims/trigger_3 = SubResource( 19 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="7" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 1, 986 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/7"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/7"]
+margin_left = -279.0
+margin_top = -53.0
+margin_right = -72.0
+margin_bottom = 51.0
+bbcode_enabled = true
+bbcode_text = "[center]You can make your player move more quietly by sneaking. However, you will sacrifice speed for stealth. Hold down left control while moving to do this. Try sneaking past the enemy up ahead."
+visible_characters = 0
+percent_visible = 0.001
+text = "You can make your player move more quietly by sneaking. However, you will sacrifice speed for stealth. Hold down left control while moving to do this. Try sneaking past the enemy up ahead."
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/7"]
+anims/RESET = SubResource( 20 )
+anims/trigger_3 = SubResource( 21 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="8" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( 0, 1578 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/8"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/8"]
+margin_left = -279.0
+margin_top = -22.0
+margin_right = -72.0
+margin_bottom = 82.0
+bbcode_enabled = true
+bbcode_text = "[center]On the other hand, you can outrun enemies by holding left shift while moving. "
+visible_characters = 0
+percent_visible = 0.001
+text = "On the other hand, you can outrun enemies by holding left shift while moving. "
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/8"]
+anims/RESET = SubResource( 22 )
+anims/trigger_3 = SubResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="9" type="Area2D" parent="LevelContainer/Room/Triggers"]
+position = Vector2( -2, 1782 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelContainer/Room/Triggers/9"]
+position = Vector2( -1, -21.5 )
+shape = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelContainer/Room/Triggers/9"]
+margin_left = 201.0
+margin_top = 35.0
+margin_right = 408.0
+margin_bottom = 139.0
+bbcode_enabled = true
+bbcode_text = "[center]You are ready to begin. Be on the lookout for ammo or health supply drops. Good luck!"
+visible_characters = 0
+percent_visible = 0.001
+text = "You are ready to begin. Be on the lookout for ammo or health supply drops. Good luck!"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/9"]
+anims/RESET = SubResource( 24 )
+anims/trigger_3 = SubResource( 25 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SmallRoom1" parent="LevelContainer/Room" instance=ExtResource( 19 )]
+position = Vector2( -133, 831 )
+
+[node name="SmallRoom2" parent="LevelContainer/Room" instance=ExtResource( 19 )]
+position = Vector2( -123, 865 )
+rotation = 3.14159
+
+[node name="DoubleDoor" parent="LevelContainer/Room/SmallRoom2" instance=ExtResource( 9 )]
+position = Vector2( 5.00001, 80 )
+
+[node name="Chair4" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 66, 688 )
+rotation = -2.81842
+
+[node name="Chair13" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 83, 804 )
+rotation = -3.02646
+
+[node name="Chair14" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 185, 811 )
+
+[node name="Chair15" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 127, 851 )
+rotation = 1.82061
+
+[node name="Chair" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 176, 689 )
+
+[node name="Chair2" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 126, 650 )
+rotation = -1.86609
+
+[node name="Chair3" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 124, 730 )
+rotation = 1.76015
+
+[node name="Chair32" parent="LevelContainer/Room" instance=ExtResource( 16 )]
+position = Vector2( 126, 766 )
+rotation = -1.80311
+
+[node name="CafeteriaTableSquare" parent="LevelContainer/Room" instance=ExtResource( 15 )]
+position = Vector2( 127, 810 )
+
+[node name="PlateWithFood2" parent="LevelContainer/Room/CafeteriaTableSquare" instance=ExtResource( 12 )]
+position = Vector2( -18, -2 )
+
+[node name="Cup" parent="LevelContainer/Room/CafeteriaTableSquare" instance=ExtResource( 14 )]
+position = Vector2( -6, 6 )
+
+[node name="CupSideways" parent="LevelContainer/Room/CafeteriaTableSquare" instance=ExtResource( 17 )]
+position = Vector2( 4, -23 )
+rotation = 0.172788
+
+[node name="CafeteriaTableSquare2" parent="LevelContainer/Room" instance=ExtResource( 15 )]
+position = Vector2( 127, 690 )
+
+[node name="Plate" parent="LevelContainer/Room/CafeteriaTableSquare2" instance=ExtResource( 18 )]
+position = Vector2( -5, -16 )
+
+[node name="PlateBroken2" parent="LevelContainer/Room" instance=ExtResource( 13 )]
+position = Vector2( 28, 718 )
+rotation = 0.174533
+
+[node name="PlateBroken5" parent="LevelContainer/Room" instance=ExtResource( 13 )]
+position = Vector2( 163, 861 )
+rotation = 1.5708
+
+[node name="CupSideways3" parent="LevelContainer/Room" instance=ExtResource( 17 )]
+position = Vector2( 18, 850 )
+rotation = 2.34921
 
 [node name="NoiseController" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -60,6 +657,7 @@ script = ExtResource( 8 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 unique_name_in_owner = true
+position = Vector2( 1, -111 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="HearingCircle" parent="Player/Sprite" index="2"]
@@ -68,5 +666,15 @@ offset = Vector2( 0, 0 )
 
 [node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]
 scale = Vector2( 2, 2 )
+
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/1" to="LevelContainer/Room/Triggers/1" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/2" to="LevelContainer/Room/Triggers/2" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/3" to="LevelContainer/Room/Triggers/3" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/4" to="LevelContainer/Room/Triggers/4" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/5" to="LevelContainer/Room/Triggers/5" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/6" to="LevelContainer/Room/Triggers/6" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/7" to="LevelContainer/Room/Triggers/7" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/8" to="LevelContainer/Room/Triggers/8" method="_on_3_body_entered"]
+[connection signal="body_entered" from="LevelContainer/Room/Triggers/9" to="LevelContainer/Room/Triggers/9" method="_on_3_body_entered"]
 
 [editable path="Player"]
