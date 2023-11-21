@@ -25,6 +25,9 @@ func InitNoise(noisePosition, noiseIntensity):
   var spriteNode = get_child(0)
   scale  *= (intensity / (spriteNode.texture.get_width() / 2))
   
+  if !Global.ShowNoiseCircles:
+    spriteNode.visible = false
+  
   # Any node belonging to the group "NoiseListener" will have its ReactToNoise() function called.
   get_tree().call_group("NoiseListener", "ReactToNoise", noisePosition, noiseIntensity)
   
