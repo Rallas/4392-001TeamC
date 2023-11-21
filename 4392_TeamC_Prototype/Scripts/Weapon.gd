@@ -23,7 +23,7 @@ export var reloadTime = 1000		# milliseconds to reload
 
 # Accuracy penalty: Shot direction will between -penalty and penalty radians off of target.
 var hipfireAccuracyPenalty = .65
-var aimingAccuracyPenalty = .15
+var aimingAccuracyPenalty = .07
 ##############################################
 
 

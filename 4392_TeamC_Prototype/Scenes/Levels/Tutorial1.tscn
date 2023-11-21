@@ -16,6 +16,10 @@ script = ExtResource( 7 )
 
 [node name="Room" parent="LevelContainer" instance=ExtResource( 3 )]
 
+[node name="RichTextLabel" parent="LevelContainer/Room/Triggers/Exit" index="2"]
+bbcode_text = "[center]This will take you to the next level. You need a key to enter."
+text = "This will take you to the next level. You need a key to enter."
+
 [node name="NoiseController" type="Node2D" parent="."]
 pause_mode = 2
 unique_name_in_owner = true

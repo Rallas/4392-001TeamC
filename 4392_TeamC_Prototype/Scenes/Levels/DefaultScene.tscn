@@ -39,7 +39,7 @@ script = ExtResource( 8 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NoiseController"]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 194, 0 )
+position = Vector2( -47, 6 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]

@@ -26,3 +26,9 @@ func GetSceneForLevel(level):
 
 func GetSceneForCurrentLevel():
   return GetSceneForLevel(CurrentLevel)
+
+func ToggleSoundDebug():
+    if ShowNoiseCircles:
+        ShowNoiseCircles = false
+    else:
+        ShowNoiseCircles = true

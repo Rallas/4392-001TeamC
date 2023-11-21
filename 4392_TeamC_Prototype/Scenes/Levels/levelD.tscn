@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Rooms/Room3.tscn" type="PackedScene" id=13]
 
 [node name="RootNode" type="Node2D"]
+position = Vector2( -440, 81 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 
