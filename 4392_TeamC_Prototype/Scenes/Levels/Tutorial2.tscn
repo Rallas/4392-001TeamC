@@ -350,7 +350,6 @@ rotation = -2.81842
 [node name="Chair13" parent="LevelContainer/Room/Decor" instance=ExtResource( 16 )]
 position = Vector2( 83, 804 )
 rotation = -3.02646
-scale = Vector2( 1, 1 )
 
 [node name="Chair14" parent="LevelContainer/Room/Decor" instance=ExtResource( 16 )]
 position = Vector2( 185, 811 )
@@ -373,7 +372,6 @@ rotation = 1.76015
 [node name="Chair32" parent="LevelContainer/Room/Decor" instance=ExtResource( 16 )]
 position = Vector2( 126, 766 )
 rotation = -1.80311
-scale = Vector2( 1, 1 )
 
 [node name="CafeteriaTableSquare" parent="LevelContainer/Room/Decor" instance=ExtResource( 15 )]
 position = Vector2( 127, 810 )
@@ -397,7 +395,6 @@ position = Vector2( -5, -16 )
 [node name="PlateBroken2" parent="LevelContainer/Room/Decor" instance=ExtResource( 13 )]
 position = Vector2( 28, 718 )
 rotation = 0.174533
-scale = Vector2( 1, 1 )
 
 [node name="PlateBroken5" parent="LevelContainer/Room/Decor" instance=ExtResource( 13 )]
 position = Vector2( 163, 861 )
@@ -693,7 +690,6 @@ script = ExtResource( 8 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 position = Vector2( 3, -384 )
-rotation = 0.261799
 scale = Vector2( 0.5, 0.5 )
 
 [node name="DefaultWeapon" parent="Player" instance=ExtResource( 4 )]

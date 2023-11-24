@@ -48,6 +48,7 @@ func _ready():
 func _physics_process(_delta):
   velocity = Vector2.ZERO
   
+  #refactored to position instead of velocity
   if Input.is_action_pressed("move_down"):
     velocity.y += 1
   if Input.is_action_pressed("move_up"):
