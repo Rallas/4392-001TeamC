@@ -152,4 +152,5 @@ func HitByEnemy():
       get_tree().paused = false
       
     
-    
+func GetBulletSpawnLocation():
+  return get_node("./torsoSprite/BulletSpawnLocation").global_position

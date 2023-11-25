@@ -35,6 +35,7 @@ var doneReloadTime
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
+onready var PlayerNode = get_node("/root/RootNode/Player")
 onready var UIController = get_node("/root/RootNode/UI")
 
 var rng = RandomNumberGenerator.new()
@@ -70,6 +71,7 @@ func _process(_delta):
             var newBullet = bulletNode.instance()
             get_node(@"/root").add_child(newBullet)
             
+            var startPos = PlayerNode.GetBulletSpawnLocation()
             
             # Scale accuracy penalty based on aim/hipfire
             var accuracyPenalty
@@ -79,10 +81,10 @@ func _process(_delta):
                 accuracyPenalty = rng.randf_range(-hipfireAccuracyPenalty, hipfireAccuracyPenalty)
             
             # Set direction and rotate it by accuracyPenalty
-            var shotAngle = global_position.angle_to_point(get_global_mouse_position())
+            var shotAngle = startPos.angle_to_point(get_global_mouse_position())
             var shotVector = Vector2.LEFT.rotated(shotAngle + accuracyPenalty)
             
-            newBullet.InitBullet(shotVector, global_position, bulletSpeed, bulletRange)
+            newBullet.InitBullet(shotVector, startPos, bulletSpeed, bulletRange)
             
             NC.CreateNoise(newBullet.position, 300)
 

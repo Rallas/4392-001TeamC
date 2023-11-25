@@ -115,6 +115,9 @@ frames = SubResource( 4 )
 animation = "standing down"
 script = ExtResource( 15 )
 
+[node name="BulletSpawnLocation" type="Node2D" parent="torsoSprite"]
+position = Vector2( 97.5, 5 )
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )
