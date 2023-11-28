@@ -31,11 +31,7 @@ func HitByProjectile():
   emit_signal("healthChanged", health, maxHealth)
   if health == 0:
     queue_free()
-
-func _physics_process(_delta):
-  var velocity = Vector2.ZERO
     
-
 
 # Note: Any node in the "NoiseListener" group needs to have this function defined with these parameters
 func ReactToNoise(noisePosition, noiseIntensity):
