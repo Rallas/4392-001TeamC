@@ -2,6 +2,7 @@ extends AnimatedSprite
 
 onready var player = get_node("/root/RootNode/Player")
 onready var torsoSprite = get_node("/root/RootNode/Player/torsoSprite")
+onready var weap = get_tree().get_root().find_node("DefaultWeapon",true,false)
 
 var target
 var offAxisAngle
@@ -25,8 +26,11 @@ func _physics_process(_delta):
     myAngle = rotation
     rotation = lerp_angle(myAngle,offAxisAngle, 0.23)
     
-    if Input.is_action_pressed("aim"):
+    if weap.reloading:
+        torsoSprite.play("reload")
+    elif Input.is_action_pressed("aim"):
         torsoSprite.play("aiming")
-    elif (Input.is_action_just_released("aim")):
+    else:
         torsoSprite.play("standing down")
-        
+
+

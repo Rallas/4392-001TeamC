@@ -32,6 +32,7 @@ var nextShotTime
 var reloading
 var doneReloadTime
 
+
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
@@ -94,6 +95,7 @@ func StartReload():
       return
       
     reloading = true
+
     doneReloadTime = OS.get_ticks_msec() + reloadTime
     get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = true
     
@@ -120,3 +122,6 @@ func CheckIfShooting():
             return true
     return false		
             
+
+
+
