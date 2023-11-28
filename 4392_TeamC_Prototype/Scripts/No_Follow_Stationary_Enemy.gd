@@ -39,7 +39,7 @@ func ReactToNoise(noisePosition, noiseIntensity):
   
   if distanceToNoise < noiseIntensity:
     followingNoise = true
-    moveTarget = noisePosition
+    moveTarget = Vector2(0,0)
   
 
 var lastAttackTime = 0

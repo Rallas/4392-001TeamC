@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/zomhead.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Stationary_Enemy.gd" type="Script" id=2]
@@ -10,6 +10,18 @@
 [ext_resource path="res://Sprites/animsprites/hhead1.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/animsprites/hlegsidle1.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/enemylegs.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt6.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/animsprites/ztorso1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/animsprites/ztorso2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/animsprites/ztorso4.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/animsprites/ztorso5.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt4.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/animsprites/ztorso3.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/animsprites/ztorsoagt5.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/ztorso.gd" type="Script" id=22]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -27,6 +39,19 @@ animations = [ {
 "loop": true,
 "name": "sneak",
 "speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "agitated",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -47,20 +72,27 @@ collision_layer = 2
 collision_mask = 65535
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.0627451, 0.466667, 0.0509804, 1 )
-light_mask = 2
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 8 )
-script = ExtResource( 1 )
-
 [node name="zomlegs" type="AnimatedSprite" parent="."]
-modulate = Color( 0.0941176, 0.529412, 0.0862745, 1 )
+modulate = Color( 0.054902, 0.345098, 0.0509804, 1 )
 light_mask = 2
 scale = Vector2( 1, 0.8 )
 frames = SubResource( 5 )
 animation = "sneak"
 script = ExtResource( 10 )
+
+[node name="zomtorso" type="AnimatedSprite" parent="."]
+modulate = Color( 0.164706, 0.588235, 0.0431373, 1 )
+light_mask = 2
+frames = SubResource( 6 )
+animation = "agitated"
+script = ExtResource( 22 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.0823529, 0.619608, 0.0666667, 1 )
+light_mask = 2
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
