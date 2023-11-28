@@ -6,6 +6,9 @@ var gameIsPaused = false
 onready var ControlsPopup = get_node("ControlsBG")
 onready var DebugPopup = get_node("DebugScreenBG")
 onready var DebugInput = get_node("DebugScreenBG/PlayerInput")
+onready var PauseBG = get_node("PauseMenuBG")
+onready var HA = get_node("Hover")
+onready var CA = get_node("Click")
 
 func _ready():
   pause_mode = Node.PAUSE_MODE_PROCESS
@@ -36,6 +39,7 @@ func PauseGame():
   visible = true
   ControlsPopup.visible = false
   DebugPopup.visible = false
+  PauseBG.visible = true
   
 func UnpauseGame():
   get_tree().paused = false
@@ -46,21 +50,27 @@ func UnpauseGame():
 
 
 func _on_ResumeButton_pressed():
+  CA.play()
   UnpauseGame()
 
 
 func _on_QuitButton_pressed():
+  CA.play()
   get_tree().paused = false
   var _opt = get_tree().change_scene("res://Scenes/StartMenu.tscn")
   
 
 
 func _on_ControlsButton_pressed():
+  CA.play()
   ControlsPopup.visible = true
+  PauseBG.visible = false
 
 
 func _on_ControlsCloseButton_pressed():
+  CA.play()
   ControlsPopup.visible = false
+  PauseBG.visible = true
 
 
 func _on_DebugCloseButton_pressed():
@@ -82,3 +92,19 @@ func _on_DebugSubmit_pressed():
     
   else:
     print("Invalid code")
+
+
+func _on_ResumeButton_mouse_entered():
+    HA.play()
+
+
+func _on_ControlsButton_mouse_entered():
+    HA.play()
+
+
+func _on_QuitButton_mouse_entered():
+    HA.play()
+
+
+func _on_ControlsCloseButton_mouse_entered():
+    HA.play()

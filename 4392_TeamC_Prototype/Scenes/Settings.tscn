@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Resources/Back.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Fonts/MenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/BackBotton.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/VolumeSlider.gd" type="Script" id=3]
 
@@ -19,8 +19,9 @@ script = ExtResource( 2 )
 
 [node name="Back" type="Button" parent="BackButton"]
 margin_right = 148.0
-margin_bottom = 103.0
-icon = ExtResource( 1 )
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
 flat = true
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
