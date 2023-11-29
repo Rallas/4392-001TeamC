@@ -4,6 +4,7 @@ extends CanvasLayer
 var gameIsPaused = false
 
 onready var ControlsPopup = get_node("ControlsBG")
+onready var SettingsPopup = get_node("SettingsBG")
 onready var DebugPopup = get_node("DebugScreenBG")
 onready var DebugInput = get_node("DebugScreenBG/PlayerInput")
 onready var PauseBG = get_node("PauseMenuBG")
@@ -18,7 +19,14 @@ func _ready():
 func _process(_delta):
   if Input.is_action_just_pressed("ui_cancel"):
     if gameIsPaused:
-      UnpauseGame()
+      if !PauseBG.visible:
+        PauseBG.visible = true
+        DebugPopup.visible = false
+        ControlsPopup.visible = false
+        SettingsPopup.visible = false
+        
+      else:
+        UnpauseGame()
     else:
       PauseGame()
       
@@ -39,6 +47,7 @@ func PauseGame():
   visible = true
   ControlsPopup.visible = false
   DebugPopup.visible = false
+  SettingsPopup.visible = false
   PauseBG.visible = true
   
 func UnpauseGame():
@@ -47,6 +56,7 @@ func UnpauseGame():
   visible = false
   ControlsPopup.visible = false
   DebugPopup.visible = false
+  SettingsPopup.visible = false
 
 
 func _on_ResumeButton_pressed():
@@ -60,18 +70,27 @@ func _on_QuitButton_pressed():
   var _opt = get_tree().change_scene("res://Scenes/StartMenu.tscn")
   
 
-
 func _on_ControlsButton_pressed():
   CA.play()
   ControlsPopup.visible = true
   PauseBG.visible = false
-
 
 func _on_ControlsCloseButton_pressed():
   CA.play()
   ControlsPopup.visible = false
   PauseBG.visible = true
 
+  
+
+func _on_SettingsButton_pressed():
+  CA.play()
+  SettingsPopup.visible = true
+  PauseBG.visible = false
+  
+func _on_SettingsCloseButton_pressed():
+  CA.play()
+  SettingsPopup.visible = false
+  PauseBG.visible = true
 
 func _on_DebugCloseButton_pressed():
   DebugPopup.visible = false
@@ -107,4 +126,14 @@ func _on_QuitButton_mouse_entered():
 
 
 func _on_ControlsCloseButton_mouse_entered():
+    HA.play()
+
+    
+func _on_SettingsCloseButton_mouse_entered():
+    HA.play()
+
+
+
+
+func _on_SettingsButton_mouse_entered():
     HA.play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Audio/Title_Screen/switch4.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Resources/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Sprites/square-rounded-xxl.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Audio/Title_Screen/click1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scenes/VolumeSlider.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
@@ -25,6 +26,9 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFontData" id=1]
@@ -48,6 +52,7 @@ color = Color( 0, 0, 0, 0.588235 )
 
 [node name="PauseMenuBG" type="ColorRect" parent="."]
 pause_mode = 2
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -103,10 +108,22 @@ custom_fonts/font = SubResource( 4 )
 text = "Controls"
 flat = true
 
-[node name="QuitButton" type="Button" parent="PauseMenuBG"]
+[node name="SettingsButton" type="Button" parent="PauseMenuBG"]
 pause_mode = 2
 margin_left = 218.0
 margin_top = 295.0
+margin_right = 413.0
+margin_bottom = 266.0
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.835294, 0.839216, 0.752941, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Settings"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PauseMenuBG"]
+pause_mode = 2
+margin_left = 218.0
+margin_top = 380.0
 margin_right = 413.0
 margin_bottom = 351.0
 custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
@@ -185,8 +202,111 @@ custom_fonts/font = SubResource( 7 )
 text = "Close"
 flat = true
 
+[node name="SettingsBG" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -315.0
+margin_top = -235.0
+margin_right = 315.0
+margin_bottom = 235.0
+color = Color( 0.309804, 0.309804, 0.309804, 0 )
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="SettingsBG"]
+modulate = Color( 1, 1, 1, 0.180392 )
+position = Vector2( 320, 225 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="SettingsBG"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -315.0
+margin_right = 315.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.960784, 0.866667, 0.219608, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "OPTIONS"
+align = 1
+
+[node name="SettingsCloseButton" type="Button" parent="SettingsBG"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -53.0
+margin_top = -46.0
+margin_right = 53.0
+custom_colors/font_color = Color( 0.835294, 0.839216, 0.752941, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Close"
+flat = true
+
+[node name="HSplitContainer" type="HSplitContainer" parent="SettingsBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -139.5
+margin_top = -9.0
+margin_right = 139.5
+margin_bottom = 9.0
+
+[node name="Master" type="Label" parent="SettingsBG/HSplitContainer"]
+margin_right = 58.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 8 )
+text = "Master
+"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
+margin_left = 70.0
+margin_right = 279.0
+margin_bottom = 16.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="SFX" type="Label" parent="SettingsBG/HSplitContainer"]
+margin_top = 50.0
+margin_right = 229.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 8 )
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
+margin_left = 70.0
+margin_top = 50.0
+margin_right = 279.0
+margin_bottom = 66.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="Music" type="Label" parent="SettingsBG/HSplitContainer"]
+margin_top = 25.0
+margin_right = 99.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 8 )
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
+margin_left = 70.0
+margin_top = 25.0
+margin_right = 279.0
+margin_bottom = 41.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
 [node name="DebugScreenBG" type="ColorRect" parent="."]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 50.0
@@ -259,9 +379,16 @@ bus = "SFX"
 [connection signal="pressed" from="PauseMenuBG/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="mouse_entered" from="PauseMenuBG/ControlsButton" to="." method="_on_ControlsButton_mouse_entered"]
 [connection signal="pressed" from="PauseMenuBG/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="mouse_entered" from="PauseMenuBG/SettingsButton" to="." method="_on_SettingsButton_mouse_entered"]
+[connection signal="pressed" from="PauseMenuBG/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="PauseMenuBG/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
 [connection signal="pressed" from="PauseMenuBG/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="mouse_entered" from="ControlsBG/ControlsCloseButton" to="." method="_on_ControlsCloseButton_mouse_entered"]
 [connection signal="pressed" from="ControlsBG/ControlsCloseButton" to="." method="_on_ControlsCloseButton_pressed"]
+[connection signal="mouse_entered" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_mouse_entered"]
+[connection signal="pressed" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_pressed"]
+[connection signal="value_changed" from="SettingsBG/HSplitContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_value_changed"]
+[connection signal="value_changed" from="SettingsBG/HSplitContainer/SFXSlider" to="SettingsBG" method="_on_SFXSlider_value_changed"]
+[connection signal="value_changed" from="SettingsBG/HSplitContainer/MusicSlider" to="SettingsBG" method="_on_MusicSlider_value_changed"]
 [connection signal="pressed" from="DebugScreenBG/DebugCloseButton" to="." method="_on_DebugCloseButton_pressed"]
 [connection signal="pressed" from="DebugScreenBG/DebugSubmit" to="." method="_on_DebugSubmit_pressed"]
