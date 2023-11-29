@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/KeyGrab.mp3-5e77f432f7429b13d3f44f18cc8eecf0.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/KeyGrab.mp3"
+dest_files=[ "res://.import/KeyGrab.mp3-5e77f432f7429b13d3f44f18cc8eecf0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

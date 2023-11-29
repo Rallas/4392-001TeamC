@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/unlock-the-door-2-99745.mp3-1cac18eb76284fdfaf8e2719a7f493af.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/unlock-the-door-2-99745.mp3"
+dest_files=[ "res://.import/unlock-the-door-2-99745.mp3-1cac18eb76284fdfaf8e2719a7f493af.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
