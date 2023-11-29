@@ -43,7 +43,8 @@ func Interact():
   
   if OS.get_ticks_msec() - lastNoiseTime > noiseInterval:
     lastNoiseTime = OS.get_ticks_msec()
-    NC.CreateNoise(global_position, noiseIntensity)
+    NC.CreateNoise(global_position, noiseIntensity, "unlockdoor")
+    
   
   if timeToUnlock <= 0:
     

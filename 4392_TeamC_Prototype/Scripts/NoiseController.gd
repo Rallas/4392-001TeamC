@@ -29,6 +29,8 @@ var FootstepAudio = [
 var DoorOpen = preload("res://Resources/Audio/dorm-door-opening-6038.mp3")
 var UnlockDoor = preload("res://Resources/Audio/unlock-the-door-2-99745.mp3")
 
+var Gunshot = preload("res://Resources/Audio/gunshot.mp3")
+
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -51,5 +53,8 @@ func CreateNoise(noisePosition, noiseIntensity, soundType = null):
           AudioSource.play()
         "unlockdoor":
           AudioSource.stream = UnlockDoor
+          AudioSource.play()
+        "gunshot":
+          AudioSource.stream = Gunshot
           AudioSource.play()
       pass

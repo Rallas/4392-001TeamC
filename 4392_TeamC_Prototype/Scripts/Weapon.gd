@@ -32,7 +32,6 @@ var nextShotTime
 var reloading
 var doneReloadTime
 
-
 var bulletNode = preload("res://Scenes/Bullet.tscn")
 
 onready var NC = get_node("/root/RootNode/NoiseController")
@@ -67,7 +66,8 @@ func _process(_delta):
             currentMag -= 1
             UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
             nextShotTime = OS.get_ticks_msec() + fireRate
-        
+            NC.CreateNoise(global_position, 100, "gunshot")
+            
             # Instantiate a new bullet in the scene
             var newBullet = bulletNode.instance()
             get_node(@"/root").add_child(newBullet)
