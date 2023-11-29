@@ -12,7 +12,7 @@ extends Node2D
 var NoiseObject = preload("res://Scenes/NoiseSource.tscn")
 onready var AudioSource = get_node("AudioStreamPlayer")
 
-var bus_index = AudioServer.get_bus_index("SFX")
+#var bus_index = AudioServer.get_bus_index("SFX")
 
 var FootstepAudio = [
   preload("res://Resources/Audio/Footsteps/Footstep-00.wav"),
@@ -33,7 +33,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
   rng.randomize()
-  AudioSource.bus = AudioServer.get_bus_send(bus_index)
+  #AudioSource.bus = AudioServer.get_bus_send(bus_index)
 
 func CreateNoise(noisePosition, noiseIntensity, soundType = null):
     var newNoise = NoiseObject.instance()
