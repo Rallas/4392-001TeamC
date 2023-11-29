@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.png"
 
 Global="*res://Scripts/GlobalScripts/Global.gd"
 PlayerInventory="*res://Scripts/GlobalScripts/PlayerInventory.gd"
+SoundData="*res://Scripts/GlobalScripts/SoundData.gd"
 Music="*res://Scenes/AudioScene/music.tscn"
 
 [display]
