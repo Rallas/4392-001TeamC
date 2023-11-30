@@ -16,6 +16,12 @@ script = ExtResource( 7 )
 
 [node name="Room" parent="LevelContainer" instance=ExtResource( 3 )]
 
+[node name="RichTextLabel" parent="LevelContainer/Room/Triggers/Movement" index="2"]
+bbcode_text = "[center]Welcome to Cubicle Chaos!
+Use WASD and your mouse to control your character."
+text = "Welcome to Cubicle Chaos!
+Use WASD and your mouse to control your character."
+
 [node name="RichTextLabel" parent="LevelContainer/Room/Triggers/Exit" index="2"]
 bbcode_text = "[center]This will take you to the next level. You need a key to enter."
 text = "This will take you to the next level. You need a key to enter."

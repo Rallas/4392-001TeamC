@@ -430,10 +430,10 @@ margin_top = -45.0
 margin_right = -135.0
 margin_bottom = 59.0
 bbcode_enabled = true
-bbcode_text = "[center]You spawn in with a gun. Click your right mouse button to fire and R to reload your gun."
+bbcode_text = "[center]You spawn in with a gun. Click your left mouse button to fire and R to reload your gun."
 visible_characters = 0
 percent_visible = 0.001
-text = "You spawn in with a gun. Click your right mouse button to fire and R to reload your gun."
+text = "You spawn in with a gun. Click your left mouse button to fire and R to reload your gun."
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/1"]
