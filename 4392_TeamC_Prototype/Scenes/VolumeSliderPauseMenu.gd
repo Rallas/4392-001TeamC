@@ -3,10 +3,9 @@ extends Control
 onready var music_index = AudioServer.get_bus_index("Music")
 onready var sfx_index = AudioServer.get_bus_index("SFX")
 onready var master_index = AudioServer.get_bus_index("Master")
-
-onready var MasterSlider = get_node("/root/Control/HSplitContainer/MasterSlider")
-onready var MusicSlider = get_node("/root/Control/HSplitContainer/MusicSlider2")
-onready var SFXSlider = get_node("/root/Control/HSplitContainer/SFXSlider")
+onready var MasterSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/MasterSlider")
+onready var MusicSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/SFXSlider")
+onready var SFXSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/MusicSlider")
 
 # Called when the node enters the scene tree for the first time.  
 func _ready():

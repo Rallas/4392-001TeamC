@@ -1,9 +1,9 @@
 extends Node2D
 
 
-var masterValue = 0.5
-var sfxValue = 0.5
-var musicValue = 0.5
+var masterValue = .5
+var sfxValue = .5
+var musicValue = .5
 
 # Getter and setter for the slider value
 func set_master_value(value):
