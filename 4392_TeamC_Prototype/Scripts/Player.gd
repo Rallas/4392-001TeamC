@@ -129,7 +129,7 @@ func HitByEnemy():
   if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
     lastHitTime = OS.get_ticks_msec()
     if (currentHealth - enemyDamage > 0):
-      NC.CreateNoise(global_position, noiseIntensity)
+      NC.CreateNoise(global_position, noiseIntensity, "hurt")
       currentHealth -= enemyDamage
       UIController.UpdateHealth(currentHealth, totalHealth)
     else:

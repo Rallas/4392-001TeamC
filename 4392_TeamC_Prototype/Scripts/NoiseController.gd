@@ -31,6 +31,8 @@ var UnlockDoor = preload("res://Resources/Audio/unlock-the-door-2-99745.mp3")
 
 var Gunshot = preload("res://Resources/Audio/gunshot.mp3")
 
+var Hurt = preload("res://Resources/Audio/umph-47201.mp3")
+
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -56,5 +58,8 @@ func CreateNoise(noisePosition, noiseIntensity, soundType = null):
           AudioSource.play()
         "gunshot":
           AudioSource.stream = Gunshot
+          AudioSource.play()
+        "hurt":
+          AudioSource.stream = Hurt
           AudioSource.play()
       pass
