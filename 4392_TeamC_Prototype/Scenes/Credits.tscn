@@ -90,8 +90,9 @@ Noah Hayes
 
 
 Art:
-https://aiadev.itch.io/top-down-horror-assets
-https://vittles.itch.io/rotoscoped-zombie-and-soldier
+Tileset and Office Set: https://aiadev.itch.io/top-down-horror-assets
+Main Menu Animation: Hobo Knight on YouTube
+
 
 
 
@@ -101,7 +102,14 @@ https://vittles.itch.io/rotoscoped-zombie-and-soldier
 
 
 Sounds:
-TODO
+https://pixabay.com/sound-effects/dorm-door-opening-6038/
+
+
+
+
+
+
+
 
 
 
@@ -184,8 +192,9 @@ Noah Hayes
 
 
 Art:
-https://aiadev.itch.io/top-down-horror-assets
-https://vittles.itch.io/rotoscoped-zombie-and-soldier
+Tileset and Office Set: https://aiadev.itch.io/top-down-horror-assets
+Main Menu Animation: Hobo Knight on YouTube
+
 
 
 
@@ -195,7 +204,14 @@ https://vittles.itch.io/rotoscoped-zombie-and-soldier
 
 
 Sounds:
-TODO
+https://pixabay.com/sound-effects/dorm-door-opening-6038/
+
+
+
+
+
+
+
 
 
 
@@ -219,7 +235,7 @@ script = ExtResource( 2 )
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 margin_right = 148.0
-margin_bottom = 66.0
+margin_bottom = 73.0
 custom_fonts/font = ExtResource( 1 )
 text = "Back"
 flat = true
