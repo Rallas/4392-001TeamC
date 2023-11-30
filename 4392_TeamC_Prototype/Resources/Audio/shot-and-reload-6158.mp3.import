@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shot-and-reload-6158.mp3-c940863ee1f5fb7f1b78d997e65efe7b.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/shot-and-reload-6158.mp3"
+dest_files=[ "res://.import/shot-and-reload-6158.mp3-c940863ee1f5fb7f1b78d997e65efe7b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
