@@ -9,7 +9,7 @@ signal healthChanged(newHealth, maxHealth)
 
 export var maxHealth = 4
 var health
-
+var isStill
 var moveSpeed = 100
 var inertia = 100
 
@@ -41,6 +41,7 @@ func _physics_process(_delta):
     
   if global_position.distance_to(moveTarget) > 10:
     velocity = (moveTarget - global_position).normalized()
+    isStill = false
     
     if followingNoise:
       velocity *= 3.5
@@ -56,6 +57,7 @@ func _physics_process(_delta):
         collision.collider.apply_central_impulse(-collision.normal*inertia)
   else:
     followingNoise = false
+    isStill = true
 
 
 # Note: Any node in the "NoiseListener" group needs to have this function defined with these parameters

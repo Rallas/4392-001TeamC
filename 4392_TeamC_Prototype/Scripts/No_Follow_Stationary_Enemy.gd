@@ -9,7 +9,7 @@ signal healthChanged(newHealth, maxHealth)
 
 export var maxHealth = 4
 var health
-
+var isStill
 var moveSpeed = 100
 var inertia = 100
 
@@ -48,6 +48,7 @@ var attackSpeed = 500
 
 var AttackableObjects = Array()
 func _process(_delta):
+  isStill = true
   if AttackableObjects.size() > 0:
     
     if OS.get_ticks_msec() - attackSpeed > lastAttackTime:

@@ -17,10 +17,10 @@ func _physics_process(_delta):
     if currvel != Vector2.ZERO:
         look_at(currvel)
     
-    if currvel != Vector2.ZERO and !(enemy.followingNoise):
-        animsprite.play("sneak")
-    elif currvel == Vector2.ZERO:
+    if enemy.isStill == true:
         animsprite.play("idle")
+    elif currvel != Vector2.ZERO and !(enemy.followingNoise):
+        animsprite.play("sneak")
     elif currvel != Vector2.ZERO and (enemy.followingNoise):
         animsprite.play("run")
     else:
