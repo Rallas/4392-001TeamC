@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/Fonts/MenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/BackBotton.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/VolumeSlider.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Audio/Title_Screen/switch4.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -85,6 +86,15 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 5 )
+volume_db = 3.312
+pitch_scale = 0.59
+bus = "SFX"
+
+[connection signal="drag_ended" from="HSplitContainer/MasterSlider" to="." method="_on_MasterSlider_drag_ended"]
 [connection signal="value_changed" from="HSplitContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="drag_ended" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
 [connection signal="value_changed" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="HSplitContainer/MusicSlider2" to="." method="_on_MusicSlider_value_changed"]

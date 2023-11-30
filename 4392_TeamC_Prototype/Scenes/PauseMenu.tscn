@@ -304,6 +304,13 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
+[node name="ClickAudio" type="AudioStreamPlayer" parent="SettingsBG"]
+unique_name_in_owner = true
+stream = ExtResource( 2 )
+volume_db = 3.312
+pitch_scale = 0.59
+bus = "SFX"
+
 [node name="DebugScreenBG" type="ColorRect" parent="."]
 pause_mode = 2
 visible = false
@@ -387,7 +394,9 @@ bus = "SFX"
 [connection signal="pressed" from="ControlsBG/ControlsCloseButton" to="." method="_on_ControlsCloseButton_pressed"]
 [connection signal="mouse_entered" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_mouse_entered"]
 [connection signal="pressed" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_pressed"]
+[connection signal="drag_ended" from="SettingsBG/HSplitContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_drag_ended"]
 [connection signal="value_changed" from="SettingsBG/HSplitContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_value_changed"]
+[connection signal="drag_ended" from="SettingsBG/HSplitContainer/SFXSlider" to="SettingsBG" method="_on_SFXSlider_drag_ended"]
 [connection signal="value_changed" from="SettingsBG/HSplitContainer/SFXSlider" to="SettingsBG" method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="SettingsBG/HSplitContainer/MusicSlider" to="SettingsBG" method="_on_MusicSlider_value_changed"]
 [connection signal="pressed" from="DebugScreenBG/DebugCloseButton" to="." method="_on_DebugCloseButton_pressed"]

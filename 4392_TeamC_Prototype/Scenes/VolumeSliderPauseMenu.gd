@@ -7,6 +7,8 @@ onready var MasterSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSpl
 onready var MusicSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/SFXSlider")
 onready var SFXSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/MusicSlider")
 
+onready var Click = get_node("%ClickAudio")
+
 # Called when the node enters the scene tree for the first time.  
 func _ready():
     MasterSlider.value = SoundData.get_master_value()
@@ -27,3 +29,10 @@ func _on_MasterSlider_value_changed(value):
     AudioServer.set_bus_volume_db(master_index, linear2db(value))
     AudioServer.set_bus_mute(master_index, sfx_index < .05)
     SoundData.set_master_value(value)
+
+
+func _on_SFXSlider_drag_ended(value_changed):
+  Click.play()
+
+func _on_MasterSlider_drag_ended(value_changed):
+  Click.play()
