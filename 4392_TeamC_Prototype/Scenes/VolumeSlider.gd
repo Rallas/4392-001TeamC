@@ -32,8 +32,11 @@ func _on_MasterSlider_value_changed(value):
     SoundData.set_master_value(value)
 
 
-func _on_SFXSlider_drag_ended(value_changed):
+func _on_SFXSlider_drag_ended(_value_changed):
   Click.play()
 
-func _on_MasterSlider_drag_ended(value_changed):
+func _on_MasterSlider_drag_ended(_value_changed):
+  Click.play()
+
+func _on_MusicSlider2_drag_ended(_value_changed):
   Click.play()

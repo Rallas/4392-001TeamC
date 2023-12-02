@@ -99,4 +99,5 @@ bus = "SFX"
 [connection signal="value_changed" from="HSplitContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="drag_ended" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
 [connection signal="value_changed" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="drag_ended" from="HSplitContainer/MusicSlider2" to="." method="_on_MusicSlider2_drag_ended"]
 [connection signal="value_changed" from="HSplitContainer/MusicSlider2" to="." method="_on_MusicSlider_value_changed"]
