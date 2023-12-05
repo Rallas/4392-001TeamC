@@ -8,6 +8,7 @@ var CurrentLevel = 1
 
 var PlayerMaxHealth = 100
 var PlayerHealthAtLevelStart = 100
+var StartMenuAnimation = preload("res://Sprites/StartMenuAnimation.tres")
 
 # Player inventory in another global script, so it already persists between levels.
 

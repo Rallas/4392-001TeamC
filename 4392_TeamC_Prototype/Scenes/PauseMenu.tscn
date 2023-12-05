@@ -29,6 +29,7 @@ size = 32
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 32
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFontData" id=1]
@@ -259,69 +260,78 @@ enabled_focus_mode = 0
 text = "Close"
 flat = true
 
-[node name="HSplitContainer" type="HSplitContainer" parent="SettingsBG"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -139.5
-margin_top = -9.0
-margin_right = 139.5
-margin_bottom = 9.0
-
-[node name="Master" type="Label" parent="SettingsBG/HSplitContainer"]
-margin_right = 58.0
-margin_bottom = 45.0
-custom_fonts/font = SubResource( 8 )
-text = "Master
-"
-
-[node name="MasterSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
-margin_left = 70.0
-margin_right = 279.0
-margin_bottom = 16.0
-max_value = 1.0
-step = 0.001
-value = 0.5
-
-[node name="SFX" type="Label" parent="SettingsBG/HSplitContainer"]
-margin_top = 50.0
-margin_right = 229.0
-margin_bottom = 90.0
-custom_fonts/font = SubResource( 8 )
-text = "SFX"
-
-[node name="SFXSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
-margin_left = 70.0
-margin_top = 50.0
-margin_right = 279.0
-margin_bottom = 66.0
-max_value = 1.0
-step = 0.001
-value = 0.5
-
-[node name="Music" type="Label" parent="SettingsBG/HSplitContainer"]
-margin_top = 25.0
-margin_right = 99.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 8 )
-text = "Music"
-
-[node name="MusicSlider" type="HSlider" parent="SettingsBG/HSplitContainer"]
-margin_left = 70.0
-margin_top = 25.0
-margin_right = 279.0
-margin_bottom = 41.0
-max_value = 1.0
-step = 0.001
-value = 0.5
-
 [node name="ClickAudio" type="AudioStreamPlayer" parent="SettingsBG"]
 unique_name_in_owner = true
 stream = ExtResource( 2 )
 volume_db = 3.312
 pitch_scale = 0.59
 bus = "SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -194.0
+margin_top = -109.0
+margin_right = 214.0
+margin_bottom = 79.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsBG/VBoxContainer"]
+margin_right = 408.0
+margin_bottom = 60.0
+
+[node name="Master" type="Label" parent="SettingsBG/VBoxContainer/VBoxContainer"]
+margin_right = 408.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsBG/VBoxContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 408.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsBG/VBoxContainer"]
+margin_top = 64.0
+margin_right = 408.0
+margin_bottom = 124.0
+
+[node name="SFX" type="Label" parent="SettingsBG/VBoxContainer/VBoxContainer2"]
+margin_right = 408.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="SettingsBG/VBoxContainer/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 408.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="SettingsBG/VBoxContainer"]
+margin_top = 128.0
+margin_right = 408.0
+margin_bottom = 188.0
+
+[node name="Music" type="Label" parent="SettingsBG/VBoxContainer/VBoxContainer3"]
+margin_right = 408.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 8 )
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsBG/VBoxContainer/VBoxContainer3"]
+margin_top = 44.0
+margin_right = 408.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
 
 [node name="DebugScreenBG" type="ColorRect" parent="."]
 pause_mode = 2
@@ -409,10 +419,11 @@ bus = "SFX"
 [connection signal="pressed" from="ControlsBG/ControlsCloseButton" to="." method="_on_ControlsCloseButton_pressed"]
 [connection signal="mouse_entered" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_mouse_entered"]
 [connection signal="pressed" from="SettingsBG/SettingsCloseButton" to="." method="_on_SettingsCloseButton_pressed"]
-[connection signal="drag_ended" from="SettingsBG/HSplitContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_drag_ended"]
-[connection signal="value_changed" from="SettingsBG/HSplitContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_value_changed"]
-[connection signal="drag_ended" from="SettingsBG/HSplitContainer/SFXSlider" to="SettingsBG" method="_on_SFXSlider_drag_ended"]
-[connection signal="value_changed" from="SettingsBG/HSplitContainer/SFXSlider" to="SettingsBG" method="_on_SFXSlider_value_changed"]
-[connection signal="value_changed" from="SettingsBG/HSplitContainer/MusicSlider" to="SettingsBG" method="_on_MusicSlider_value_changed"]
+[connection signal="drag_ended" from="SettingsBG/VBoxContainer/VBoxContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_drag_ended"]
+[connection signal="value_changed" from="SettingsBG/VBoxContainer/VBoxContainer/MasterSlider" to="SettingsBG" method="_on_MasterSlider_value_changed"]
+[connection signal="drag_ended" from="SettingsBG/VBoxContainer/VBoxContainer2/SFXSlider" to="SettingsBG" method="_on_SFXSlider_drag_ended"]
+[connection signal="value_changed" from="SettingsBG/VBoxContainer/VBoxContainer2/SFXSlider" to="SettingsBG" method="_on_SFXSlider_value_changed"]
+[connection signal="drag_ended" from="SettingsBG/VBoxContainer/VBoxContainer3/MusicSlider" to="SettingsBG" method="_on_MusicSlider_drag_ended"]
+[connection signal="value_changed" from="SettingsBG/VBoxContainer/VBoxContainer3/MusicSlider" to="SettingsBG" method="_on_MusicSlider_value_changed"]
 [connection signal="pressed" from="DebugScreenBG/DebugCloseButton" to="." method="_on_DebugCloseButton_pressed"]
 [connection signal="pressed" from="DebugScreenBG/DebugSubmit" to="." method="_on_DebugSubmit_pressed"]

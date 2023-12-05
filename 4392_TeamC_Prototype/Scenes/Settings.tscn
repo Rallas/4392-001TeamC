@@ -7,6 +7,7 @@
 [ext_resource path="res://Resources/Audio/Title_Screen/switch4.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+size = 32
 font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
@@ -40,53 +41,7 @@ margin_left = -139.5
 margin_top = -9.0
 margin_right = 139.5
 margin_bottom = 9.0
-
-[node name="Master" type="Label" parent="HSplitContainer"]
-margin_right = 58.0
-margin_bottom = 45.0
-custom_fonts/font = SubResource( 1 )
-text = "Master
-"
-
-[node name="MasterSlider" type="HSlider" parent="HSplitContainer"]
-margin_left = 70.0
-margin_right = 279.0
-margin_bottom = 16.0
-max_value = 1.0
-step = 0.001
-value = 0.5
-
-[node name="SFX" type="Label" parent="HSplitContainer"]
-margin_top = 50.0
-margin_right = 229.0
-margin_bottom = 90.0
-custom_fonts/font = SubResource( 1 )
-text = "SFX"
-
-[node name="SFXSlider" type="HSlider" parent="HSplitContainer"]
-margin_left = 70.0
-margin_top = 50.0
-margin_right = 279.0
-margin_bottom = 66.0
-max_value = 1.0
-step = 0.001
-value = 0.5
-
-[node name="Music" type="Label" parent="HSplitContainer"]
-margin_top = 25.0
-margin_right = 99.0
-margin_bottom = 39.0
-custom_fonts/font = SubResource( 1 )
-text = "Music"
-
-[node name="MusicSlider2" type="HSlider" parent="HSplitContainer"]
-margin_left = 70.0
-margin_top = 25.0
-margin_right = 279.0
-margin_bottom = 41.0
-max_value = 1.0
-step = 0.001
-value = 0.5
+dragger_visibility = 1
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -95,9 +50,76 @@ volume_db = 3.312
 pitch_scale = 0.59
 bus = "SFX"
 
-[connection signal="drag_ended" from="HSplitContainer/MasterSlider" to="." method="_on_MasterSlider_drag_ended"]
-[connection signal="value_changed" from="HSplitContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
-[connection signal="drag_ended" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
-[connection signal="value_changed" from="HSplitContainer/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
-[connection signal="drag_ended" from="HSplitContainer/MusicSlider2" to="." method="_on_MusicSlider2_drag_ended"]
-[connection signal="value_changed" from="HSplitContainer/MusicSlider2" to="." method="_on_MusicSlider_value_changed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -288.0
+margin_top = -136.0
+margin_right = 289.0
+margin_bottom = 52.0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 577.0
+margin_bottom = 60.0
+
+[node name="Master" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 577.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 577.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 577.0
+margin_bottom = 124.0
+
+[node name="SFX" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_right = 577.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 577.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 128.0
+margin_right = 577.0
+margin_bottom = 188.0
+
+[node name="Music" type="Label" parent="VBoxContainer/VBoxContainer3"]
+margin_right = 577.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+text = "Music Volume"
+
+[node name="MusicSlider2" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+margin_top = 44.0
+margin_right = 577.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[connection signal="drag_ended" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/VBoxContainer3/MusicSlider2" to="." method="_on_MusicSlider2_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer3/MusicSlider2" to="." method="_on_MusicSlider_value_changed"]

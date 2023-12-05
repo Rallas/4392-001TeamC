@@ -3,9 +3,9 @@ extends Control
 onready var music_index = AudioServer.get_bus_index("Music")
 onready var sfx_index = AudioServer.get_bus_index("SFX")
 onready var master_index = AudioServer.get_bus_index("Master")
-onready var MasterSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/MasterSlider")
-onready var MusicSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/SFXSlider")
-onready var SFXSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/HSplitContainer/MusicSlider")
+onready var MasterSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/VBoxContainer/VBoxContainer/MasterSlider")
+onready var MusicSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/VBoxContainer/VBoxContainer2/SFXSlider")
+onready var SFXSlider = get_node("/root/RootNode/UI/PauseMenu/SettingsBG/VBoxContainer/VBoxContainer3/MusicSlider")
 
 onready var Click = get_node("%ClickAudio")
 
@@ -14,6 +14,7 @@ func _ready():
     MasterSlider.value = SoundData.get_master_value()
     SFXSlider.value = SoundData.get_sfx_value()
     MusicSlider.value = SoundData.get_music_value()
+    $VBoxContainer.add_constant_override("separation", 20)
     
 func _on_MusicSlider_value_changed(value):
     AudioServer.set_bus_volume_db(music_index, linear2db(value))
@@ -31,8 +32,11 @@ func _on_MasterSlider_value_changed(value):
     SoundData.set_master_value(value)
 
 
-func _on_SFXSlider_drag_ended(value_changed):
+func _on_SFXSlider_drag_ended(_value_changed):
   Click.play()
 
-func _on_MasterSlider_drag_ended(value_changed):
+func _on_MasterSlider_drag_ended(_value_changed):
   Click.play()
+
+func _on_MusicSlider_drag_ended(_value_changed):
+    Click.play()
