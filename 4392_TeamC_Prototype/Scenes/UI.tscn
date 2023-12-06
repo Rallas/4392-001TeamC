@@ -218,6 +218,7 @@ text = "+ ###"
 visible = false
 
 [node name="DarknessOverlay" type="CanvasModulate" parent="."]
+pause_mode = 2
 color = Color( 0.517647, 0.454902, 0.454902, 0.784314 )
 script = ExtResource( 8 )
 

@@ -126,6 +126,9 @@ var lastHitTime = 0
 var timeBetweenHits = 500
 
 func HitByEnemy():
+  if Global.PlayerInvincible:
+    return
+  
   if OS.get_ticks_msec() - lastHitTime > timeBetweenHits:
     lastHitTime = OS.get_ticks_msec()
     if (currentHealth - enemyDamage > 0):

@@ -10,6 +10,8 @@ var PlayerMaxHealth = 100
 var PlayerHealthAtLevelStart = 100
 var StartMenuAnimation = preload("res://Sprites/StartMenuAnimation.tres")
 
+var PlayerInvincible = false;
+
 var FullScreen = false;
 
 # Player inventory in another global script, so it already persists between levels.
@@ -23,6 +25,8 @@ func GetSceneForLevel(level):
       return "res://Scenes/Levels/Tutorial2.tscn"
     3:
       return "res://Scenes/Levels/levelD.tscn"
+    4:
+      return "res://Scenes/Levels/levelA.tscn"
     _:
       return "res://Scenes/Levels/DefaultScene.tscn"
 

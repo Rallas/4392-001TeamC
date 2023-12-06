@@ -108,8 +108,13 @@ func _on_DebugSubmit_pressed():
     UnpauseGame()
     var _ret = get_tree().change_scene(Global.GetSceneForCurrentLevel())
     
+  elif inputStr == "godmode":
+    Global.PlayerInvincible = !Global.PlayerInvincible
+    
   else:
     print("Invalid code")
+    
+  DebugInput.text = ""
 
 
 func _on_ResumeButton_mouse_entered():
