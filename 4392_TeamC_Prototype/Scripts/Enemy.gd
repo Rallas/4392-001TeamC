@@ -44,7 +44,7 @@ func _physics_process(_delta):
     isStill = false
     
     if followingNoise:
-      velocity *= 3.5
+      velocity *= 2.5
     
     else:
       velocity *= 0.25

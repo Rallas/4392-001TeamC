@@ -35,3 +35,7 @@ func ToggleSoundDebug():
         ShowNoiseCircles = false
     else:
         ShowNoiseCircles = true
+
+
+func Initialize():
+  PlayerHealthAtLevelStart = 100

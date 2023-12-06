@@ -40,7 +40,7 @@ func _physics_process(_delta):
     velocity = (moveTarget - global_position).normalized()
     
     if followingNoise:
-      velocity *= 3.5
+      velocity *= 2.5
       isStill = false
     
     else:
