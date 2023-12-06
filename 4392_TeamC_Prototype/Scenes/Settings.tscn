@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/Fonts/MenuFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/BackBotton.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Resources/Audio/Title_Screen/switch4.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -120,10 +124,36 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
-[connection signal="mouse_entered" from="BackButton/Back" to="BackButton" method="_on_Back_mouse_entered"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 192.0
+margin_right = 577.0
+margin_bottom = 192.0
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 196.0
+margin_right = 577.0
+margin_bottom = 196.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 200.0
+margin_right = 577.0
+margin_bottom = 240.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 178.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "Fullscreen"
+
+[node name="Fullscreen" type="CheckButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 182.0
+margin_right = 258.0
+margin_bottom = 40.0
+
 [connection signal="drag_ended" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/VBoxContainer3/MusicSlider" to="." method="_on_MusicSlider2_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer3/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Fullscreen" to="." method="_on_Fullscreen_toggled"]
