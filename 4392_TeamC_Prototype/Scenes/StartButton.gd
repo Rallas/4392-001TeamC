@@ -11,6 +11,7 @@ func _on_Start_pressed():
     EA.play()
     yield(get_tree().create_timer(.7), "timeout")
     Global.CurrentLevel = 1
+    PlayerInventory.Initialize()
     var _ret = get_tree().change_scene(Global.GetSceneForLevel(1)) 
 
 func _on_Start_mouse_entered():

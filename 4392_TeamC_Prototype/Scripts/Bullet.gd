@@ -38,7 +38,10 @@ func _on_Bullet_body_entered(body):
   if body.has_method("HitByProjectile"):
     body.HitByProjectile()
     
-  else: 
-    NC.CreateNoise(global_position, 100)
+  else:
+    # Another double check that NoiseController still exists
+    # This was causing an error on scene switch if a bullet from last level tried to create a noise
+    if is_instance_valid(NC):
+      NC.CreateNoise(global_position, 100)
     
   queue_free()

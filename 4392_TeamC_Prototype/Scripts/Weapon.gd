@@ -45,7 +45,7 @@ func _ready():
   currentMag = magSize
   nextShotTime = OS.get_ticks_msec()
   reloading = false
-  UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
+  UIController.UpdateAmmo(currentMag, PlayerInventory.numBullets)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -64,7 +64,7 @@ func _process(_delta):
         else:
             # Fire a shot
             currentMag -= 1
-            UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
+            UIController.UpdateAmmo(currentMag, PlayerInventory.numBullets)
             nextShotTime = OS.get_ticks_msec() + fireRate
             NC.CreateNoise(global_position, 100, "gunshot")
             
@@ -97,7 +97,7 @@ func StartReload():
     reloading = true
 
     doneReloadTime = OS.get_ticks_msec() + reloadTime
-    get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = true
+    #get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = true
     
 
 func StopReload():
@@ -108,8 +108,8 @@ func StopReload():
     currentMag += numToLoad
     PlayerInventory.numBullets -= numToLoad
     
-    UIController.UpdateAmmo(currentMag, magSize, PlayerInventory.numBullets)
-    get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = false
+    UIController.UpdateAmmo(currentMag, PlayerInventory.numBullets)
+    #get_node(@"/root/RootNode/UI/HUD/ReloadText").visible = false
     
 
 
