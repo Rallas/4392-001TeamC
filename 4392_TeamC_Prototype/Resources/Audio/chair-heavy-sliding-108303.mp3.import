@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chair-heavy-sliding-108303.mp3-1644154414acc18657534549f89ecefa.mp3str"
+
+[deps]
+
+source_file="res://Resources/Audio/chair-heavy-sliding-108303.mp3"
+dest_files=[ "res://.import/chair-heavy-sliding-108303.mp3-1644154414acc18657534549f89ecefa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
