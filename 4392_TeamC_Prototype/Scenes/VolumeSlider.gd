@@ -5,7 +5,7 @@ onready var sfx_index = AudioServer.get_bus_index("SFX")
 onready var master_index = AudioServer.get_bus_index("Master")
 
 onready var MasterSlider = get_node("/root/Control/VBoxContainer/VBoxContainer/MasterSlider")
-onready var MusicSlider = get_node("/root/Control/VBoxContainer/VBoxContainer3/MusicSlider2")
+onready var MusicSlider = get_node("/root/Control/VBoxContainer/VBoxContainer3/MusicSlider")
 onready var SFXSlider = get_node("/root/Control/VBoxContainer/VBoxContainer2/SFXSlider")
 
 onready var Click = get_node("%ClickAudio")

@@ -80,7 +80,6 @@ func _on_ControlsCloseButton_pressed():
   ControlsPopup.visible = false
   PauseBG.visible = true
 
-  
 
 func _on_SettingsButton_pressed():
   CA.play()
@@ -131,8 +130,6 @@ func _on_ControlsCloseButton_mouse_entered():
     
 func _on_SettingsCloseButton_mouse_entered():
     HA.play()
-
-
 
 
 func _on_SettingsButton_mouse_entered():

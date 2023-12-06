@@ -1,5 +1,8 @@
 extends Control
 
+onready var BackButtonAudioPlayer = get_node("/root/Control/BackAudio")
+var hoverAudio = preload("res://Resources/Audio/Title_Screen/click1.wav")
+var clickAudio = preload("res://Resources/Audio/Title_Screen/switch4.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,4 +10,11 @@ func _ready():
   backButton.connect("pressed", self, "_backButton_Pressed")
 
 func _backButton_Pressed():
+  BackButtonAudioPlayer.stream = clickAudio
+  BackButtonAudioPlayer.play()
+  yield(get_tree().create_timer(.3), "timeout")
   var _back = get_tree().change_scene("res://Scenes/StartMenu.tscn")
+
+func _on_Back_mouse_entered():
+  BackButtonAudioPlayer.stream = hoverAudio
+  BackButtonAudioPlayer.play()

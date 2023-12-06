@@ -15,6 +15,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
+[node name="BackAudio" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+
 [node name="BackButton" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -109,7 +112,7 @@ margin_bottom = 40.0
 custom_fonts/font = SubResource( 1 )
 text = "Music Volume"
 
-[node name="MusicSlider2" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
 margin_top = 44.0
 margin_right = 577.0
 margin_bottom = 60.0
@@ -117,9 +120,10 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
+[connection signal="mouse_entered" from="BackButton/Back" to="BackButton" method="_on_Back_mouse_entered"]
 [connection signal="drag_ended" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
-[connection signal="drag_ended" from="VBoxContainer/VBoxContainer3/MusicSlider2" to="." method="_on_MusicSlider2_drag_ended"]
-[connection signal="value_changed" from="VBoxContainer/VBoxContainer3/MusicSlider2" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/VBoxContainer3/MusicSlider" to="." method="_on_MusicSlider2_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer3/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
