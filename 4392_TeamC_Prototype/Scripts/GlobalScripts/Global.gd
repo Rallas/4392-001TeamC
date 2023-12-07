@@ -24,9 +24,9 @@ func GetSceneForLevel(level):
     2:
       return "res://Scenes/Levels/Tutorial2.tscn"
     3:
-      return "res://Scenes/Levels/levelD.tscn"
-    4:
       return "res://Scenes/Levels/levelA.tscn"
+    4:
+      return "res://Scenes/Levels/levelD.tscn"
     _:
       return "res://Scenes/Levels/DefaultScene.tscn"
 
