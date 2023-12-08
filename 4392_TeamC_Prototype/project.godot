@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="4392 Team C prototype"
+config/name="Cubicle Chaos"
 run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://Sprites/icon.png"
 

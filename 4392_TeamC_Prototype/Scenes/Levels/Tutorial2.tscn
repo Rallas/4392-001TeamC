@@ -457,10 +457,10 @@ margin_top = -63.0
 margin_right = 341.0
 margin_bottom = 41.0
 bbcode_enabled = true
-bbcode_text = "[center]You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the top right of your screen. "
+bbcode_text = "[center]You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the bottom right of your screen. "
 visible_characters = 0
 percent_visible = 0.001
-text = "You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the top right of your screen. "
+text = "You will have a limited amount of ammo, so use it wisely. You can see your ammo count in the bottom right of your screen. "
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelContainer/Room/Triggers/2"]

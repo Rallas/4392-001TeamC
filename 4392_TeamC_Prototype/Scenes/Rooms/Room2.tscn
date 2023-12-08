@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/BasicTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/FloorTileset.tres" type="TileSet" id=3]
-[ext_resource path="res://Scenes/Rooms/RoomPresets/Smallroom1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Rooms/RoomPresets/SmallRoom1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Rooms/RoomPresets/MeetingRoom1.tscn" type="PackedScene" id=5]
 
 [node name="Room" type="Node2D"]
