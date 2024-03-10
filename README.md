@@ -3,8 +3,8 @@
 ### Table of Contents
 1. [Description](#Description)
 2. [Demo](#Demo) 
-3. [Play Demo](#Download)
-4. 
+3. [Download](#Download)
+
 ## Description
 You wake up on the top floor of a facility overrun by alien-like creatures and must get to the ground floor to escape. Can you do what it takes to survive? *Cubical Chaos* is a single-player 2D top-town roguelike shooter game. This game was developed by a team of 4 as a semester project for a Game Design course at The University of Texas at Arlington.
 
